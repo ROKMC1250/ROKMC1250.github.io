@@ -9,5 +9,10 @@
     padding-right: 20px;
     width: 100px;
     height: 100px;
-    object-fit: cover; 
+    object-fit: contain; /* 이미지의 원본 비율을 유지합니다 */
+  }
+
+  .publications-description {
+    display: block; 
+    font-weight: bold; 
   }
