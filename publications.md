@@ -12,5 +12,5 @@ items:
 
 ---
 <br />
-* indicates equal contribution.
+ *indicates equal contribution.
 <br />
