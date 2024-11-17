@@ -7,8 +7,8 @@
   .publications-bubble {
     float: left;
     padding-right: 20px;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     object-fit: contain; /* 이미지의 원본 비율을 유지합니다 */
   }
 
@@ -18,7 +18,7 @@
   }
   
   .publications-authors strong { 
-    color: lightslategrey;
+    color: lightskyblue;
   }
 
   .publications-conference {
