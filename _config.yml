@@ -21,31 +21,14 @@ footer:
   contact:
     - type: email
       name: Email
-      value: yourmail@domain.com
-    - type: wechat
-      value: YourWeChatUsername
-      link: "#"
+      value: hjh1037@gmail.com
   follow:
-    - type: twitter
-      name: Twitter
-      link: http://twitter.com/YourTwitterUsername
-      username: "@YourTwitterUsername"
-    - type: facebook
-      name: Facebook
-      link: http://facebook.com/YourFacebookUsername
     - type: linkedin
       name: LinkedIn
-      link: http://linkedin.com/in/YourLinkedInUsername
+      link: https://www.linkedin.com/in/junhyuk-heo-51567a292/
     - type: github
       name: GitHub
-      link: http://github.com/YourGitHubUsername
-    - type: dribbble
-      name: Dribbble
-      link: https://dribbble.com/YourDribbbleUsername
-    - type: rss
-      name: RSS
-      link: /feed.xml
-
+      link: https://github.com/ROKMC1250
 # Build settings
 markdown: kramdown
 sass:
