@@ -1,6 +1,6 @@
 ---
 layout: vitae
-title: Vit&aelig;
+title: Vitae;
 slug: /vitae
 ---
 
