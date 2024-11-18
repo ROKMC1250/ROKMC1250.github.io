@@ -5,24 +5,28 @@
   <body>
     {% include header.html %}
 
-    <div class="timeline">
-      <div class="item">
-        <div class="circle"></div>
-        <div class="line"></div>
-        <div class="content">
-          <h3>제목</h3>
-          <p>내용</p>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="vitae">
+          <h1 class="page-heading">{{ page.title }}</h1>
+                    <div class="timeline-container">
+            {% for item in page.timeline %}
+            <div class="timeline-item {{ item.side }}">
+              <div class="circle"></div>
+              <div class="content">
+                <p class="time">{{ item.date }}</p>
+                <h3 class="title">{{ item.title }}</h3>
+                <p class="position">{{ item.position }}</p>
+                {% if item.description %}
+                <p class="description">{{ item.description }}</p>
+                {% endif %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
         </div>
       </div>
-      <div class="item">
-        <div class="circle"></div>
-        <div class="line"></div>
-        <div class="content">
-          <h3>제목</h3>
-          <p>내용</p>
-        </div>
-      </div>
-      </div>
+    </div>
 
     {% include footer.html %}
 

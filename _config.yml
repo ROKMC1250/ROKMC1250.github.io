@@ -14,7 +14,7 @@ header:
     - name: Home
       slug: /
     - name: Publications
-    - name: Vit&aelig
+    - name: Vitae
 
 footer:
   show_powered_by: true

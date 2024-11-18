@@ -1,33 +1,73 @@
-.timeline {
-  display: flex;
-  flex-direction: column;
-  position: relative; /* line을 위해 relative positioning */
+.timeline-container {
+  width: 80%;
+  max-width: 900px;
+  position: relative;
+  margin: 20px auto;
+  padding: 20px;
 }
 
-.item {
-  display: flex;
-  align-items: center; /* 수직 가운데 정렬 */
-  margin-bottom: 20px; /* 아이템 간 간격 */
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: 6px; /* 중심선 두께 */
+  background-color: #d0d0d0; /* 중심선 색상 */
 }
 
-.circle {
+.timeline-item {
+  position: relative;
+  margin: 30px 0;
+}
+
+.timeline-item .content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 40%; /* 박스 크기 고정 (중심선과 간격 유지) */
+  max-width: 300px; /* 박스 최대 너비 제한 */
+}
+
+.timeline-item.left .content {
+  margin-right: calc(50% + 20px); /* 중심선에서 왼쪽으로 박스 배치 */
+  text-align: right; /* 텍스트는 오른쪽 정렬 */
+}
+
+.timeline-item.right .content {
+  margin-left: calc(50% + 20px); /* 중심선에서 오른쪽으로 박스 배치 */
+  text-align: left; /* 텍스트는 왼쪽 정렬 */
+}
+
+.timeline-item .circle {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #f00; /* 원 색상 */
-  margin-right: 20px; /* 원과 텍스트 간 간격 */
-}
-
-.line {
+  background-color: lightcoral;
   position: absolute;
-  left: 10px; /* 원의 중앙에 위치하도록 조정 */
-  top: 30px; /* 첫 번째 원 아래부터 시작 */
-  width: 2px; /* 선 두께 */
-  height: calc(100% - 40px); /* 전체 높이에서 위아래 여백 제외 */
-  background-color: #ccc; /* 선 색상 */
-  border-style: dashed; /* 점선 스타일 */
+  top: 50%; /* 박스와 수직으로 중앙 정렬 */
+  left: 50%; /* 중심선에 고정 */
+  transform: translate(-50%, -50%);
+  z-index: 2; /* 텍스트 박스 위로 배치 */
 }
 
-.content {
-  text-align: left; /* 텍스트 왼쪽 정렬 */
+.timeline-item .time {
+  color: #888;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+.timeline-item .title {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.timeline-item .description {
+  margin-top: 10px;
+  font-size: 0.95em;
+  color: #555;
 }
