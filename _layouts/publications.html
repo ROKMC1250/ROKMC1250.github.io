@@ -20,10 +20,15 @@
             />
             <span class="publications-text">
               {{ item.title }}
+            </span>
             <span class="publications-authors">
               {{ item.authors }}
+            </span>
             <span class="publications-conference">
               {{ item.conference }}
+            <span class="publications-link">
+              {{ item.code }} {{ item.poster }} {{ item.paper }}
+            </span>
           </div>
           {% endfor %}
         </div>
