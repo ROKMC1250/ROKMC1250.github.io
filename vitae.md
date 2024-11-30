@@ -6,7 +6,7 @@ timeline:
   - date: "May 2024 - Now"
     title: "Telepix"
     position: "AI Engineer"
-    description: "Working on processing remotely sensed images."
+    description: "Processing remote sensed images."
     side: "right"
     image: "./assets/img/vitae/텔레픽스.png"
   - date: "May 2019 - 2021"
