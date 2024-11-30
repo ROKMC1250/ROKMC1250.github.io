@@ -1,6 +1,6 @@
 .timeline-container {
-  width: 80%;
-  max-width: 900px;
+  width: 100%;
+  max-width: 10000px;
   position: relative;
   margin: 20px auto;
   padding: 20px;
@@ -22,37 +22,38 @@
   margin: 30px 0;
 }
 
-.timeline-item .content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: relative;
-  width: 40%; /* 박스 크기 고정 (중심선과 간격 유지) */
-  max-width: 300px; /* 박스 최대 너비 제한 */
+.image-wrapper {
+  position: absolute;
+  top: 50%; /* 타임라인에서 수직 중앙 */
+  left: 50%; /* 중심선에 정렬 */
+  transform: translate(-50%, -50%); /* 중심 기준으로 이동 */
+  z-index: 2; /* 이미지가 다른 요소 위로 오도록 */
 }
+
+.timeline-image {
+  width: 150px; /* 이미지 너비 */
+  height: 150px; /* 이미지 높이 */
+  border-radius: 0%; /* 이미지가 원형으로 표시 */
+  object-fit: cover; /* 이미지가 래퍼 안에 맞게 크기 조정 */
+}
+
 
 .timeline-item.left .content {
-  margin-right: calc(50% + 20px); /* 중심선에서 왼쪽으로 박스 배치 */
+  margin-right: calc(50% -70px); /* 이미지 크기 + 추가 여백 */
   text-align: right; /* 텍스트는 오른쪽 정렬 */
+  max-width: 1000px;
+  position: relative;
+  padding: 20px
 }
-
+/* 타임라인 콘텐츠 (오른쪽) */
 .timeline-item.right .content {
-  margin-left: calc(50% + 20px); /* 중심선에서 오른쪽으로 박스 배치 */
+  margin-left: calc(50% + 100px); /* 이미지 크기 + 추가 여백 */
   text-align: left; /* 텍스트는 왼쪽 정렬 */
+  max-width: 1000px;
+  position: relative;
+  padding: 20px
 }
 
-.timeline-item .circle {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: lightcoral;
-  position: absolute;
-  top: 50%; /* 박스와 수직으로 중앙 정렬 */
-  left: 50%; /* 중심선에 고정 */
-  transform: translate(-50%, -50%);
-  z-index: 2; /* 텍스트 박스 위로 배치 */
-}
 
 .timeline-item .time {
   color: #888;

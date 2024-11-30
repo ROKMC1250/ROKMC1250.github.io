@@ -12,10 +12,12 @@
                     <div class="timeline-container">
             {% for item in page.timeline %}
             <div class="timeline-item {{ item.side }}">
-              <div class="circle"></div>
+              <div class="image-wrapper">
+                <img src="{{ item.image }}" alt="Timeline Image" class="timeline-image" />
+              </div>
               <div class="content">
                 <p class="time">{{ item.date }}</p>
-                <h3 class="title">{{ item.title }}</h3>
+                <p class="title">{{ item.title }}</p>
                 <p class="position">{{ item.position }}</p>
                 {% if item.description %}
                 <p class="description">{{ item.description }}</p>
