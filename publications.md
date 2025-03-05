@@ -3,7 +3,7 @@ layout: publications
 title: Publications
 slug: /publications
 items:
-  - title: Tackling Few-Shot Segmentation in Remote Sensing via Inpainting Diffusion Model <strong>Oral<strong>
+  - title: Tackling Few-Shot Segmentation in Remote Sensing via Inpainting Diffusion Model 
     image:
       src: /assets/img/publications/Fewshot_thumbnail.png
       alt: Fewshot_thumbnail
@@ -11,7 +11,7 @@ items:
     poster: <a href="https://rspaint.steveimm.id/">[poster]</a>
     paper: [paper]
     authors: Steve Andreas Immanuel, Woojin Cho, <strong>Junhyuk Heo</strong>, Darongsae Kwon
-    conference: ICLR 2025 Workshop
+    conference: ICLR 2025 Workshop <strong>Oral<strong>
 
   - title: Neural Compression for Multispectral Satellite Images
     image:
