@@ -1,57 +1,51 @@
 // Publications Data
 const publications = [
     {
-        title: "S^4DM: Structured State Space Model for Hyperspectral Image Denoising",
-        authors: "Junhyuk Heo, Yeonghyeon Na, Seokju Cho, Joonhyuk Park",
-        venue: "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
-        year: "2024",
+        title: "Self-Supervised Score-Based Despeckling for SAR Imagery via Log-Domain Transformation",
+        authors: "Junhyuk Heo",
+        venue: "arxiv",
+        year: "2025",
         image: "assets/publications/S^4DM_thumbnail.png",
-        description: "A novel approach for hyperspectral image denoising using structured state space models.",
         links: {
             paper: "#",
-            poster: "#",
-            code: "#"
         }
     },
     {
-        title: "Implicit Satellite Image Super-Resolution using Multi-Scale Feature Reconstruction",
-        authors: "Junhyuk Heo, Yeonghyeon Na, Joonhyuk Park",
-        venue: "IEEE International Geoscience and Remote Sensing Symposium (IGARSS)",
-        year: "2023",
+        title: "Fourier-Modulated Implicit Neural Representation for Multispectral Satellite Image Compression",
+        authors: "Woojin Cho*, Steve Andreas Immanuel*, Junhyuk Heo, and Darongsae Kwon",
+        venue: "IGARSS (Oral)",
+        year: "2025",
         image: "assets/publications/Implisat_IGARSS_thumbnail.png",
-        description: "Multi-scale feature reconstruction approach for satellite image super-resolution.",
+        links: {
+            poster: "https://steveimm.id/implisat/",
+            paper: "https://arxiv.org/abs/2506.01234",
+            code: "https://github.com/SteveImmanuel/implisat"
+        }
+    },
+    {
+        title: "Tackling Few-Shot Segmentation in Remote Sensing via Inpainting Diffusion Model",
+        authors: "Steve Andreas Immanuel, Woojin Cho, Junhyuk Heo, and Darongsae Kwon",
+        venue: "ICLRw (Best Paper Award)",
+        year: "2025",
+        image: "assets/publications/Fewshot_thumbnail.png",
         links: {
             poster: "https://steveimm.id/rs-paint/",
-            paper: "https://arxiv.org/abs/2506.01234",
+            paper: "https://arxiv.org/abs/2503.03785",
             code: "https://github.com/SteveImmanuel/rs-paint"
         }
     },
     {
-        title: "ImplicitSAT: Learning Implicit Neural Representations for Satellite Image Enhancement",
+        title: "Neural Compression for Multispectral Satellite Images",
         authors: "Junhyuk Heo, Yeonghyeon Na, Seokju Cho, Joonhyuk Park",
-        venue: "IEEE Transactions on Geoscience and Remote Sensing",
-        year: "2023",
+        venue: "NeurIPSw",
+        year: "2024",
         image: "assets/publications/Implisat_thumbnail.png",
-        description: "Implicit neural representations for enhanced satellite image processing.",
         links: {
             poster: "https://steveimm.id/implisat/",
             paper: "https://openreview.net/pdf?id=gk2m2OIKMs",
             code: "https://github.com/SteveImmanuel/implisat",
         }
     },
-    {
-        title: "Few-Shot Learning for Remote Sensing Image Classification",
-        authors: "Junhyuk Heo, Seokju Cho, Joonhyuk Park",
-        venue: "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
-        year: "2022",
-        image: "assets/publications/Fewshot_thumbnail.png",
-        description: "Few-shot learning approach for efficient remote sensing image classification.",
-        links: {
-            poster: "https://steveimm.id/rs-paint/",
-            paper: "https://arxiv.org/abs/2503.03785",
-            code: "https://github.com/SteveImmanuel/rs-paint"
-        }
-    }
 ];
 
 // Vitae/Timeline Data
@@ -109,9 +103,21 @@ const personalInfo = {
 // News Data
 const newsData = [
     {
+        date: "2025-03",
+        title: "Paper accepted at ICLRw 2025(Best Paper Award)",
+        description: "Our work on 'Fourier-Modulated Implicit Neural Representation for Multispectral Satellite Image Compression' has been accepted at IEEE International Geoscience and Remote Sensing Symposium (Oral), 2025",
+        type: "publication"
+    },
+    {
+        date: "2025-02",
+        title: "Paper accepted at ICLRw 2025(Best Paper Award)",
+        description: "Our work on 'Tackling Few-Shot Segmentation in Remote Sensing via Inpainting Diffusion Model' has been accepted at ICLR Machine Learning for Remote Sensing Workshop (Best Paper Award), 2025",
+        type: "publication"
+    },
+    {
         date: "2024-11",
-        title: "Paper accepted at NeurIPS 2024 workshop on Neural Compression",
-        description: "Our work on 'S^4DM: Structured State Space Model for Hyperspectral Image Denoising' has been accepted at CVPR 2024.",
+        title: "Paper accepted at NeurIPSw 2024",
+        description: "Our work on 'Neural Compression for Multispectral Satellite Images' has been accepted at NeurIPS Neural Compression Workshop, 2024",
         type: "publication"
     },
     {
@@ -125,12 +131,6 @@ const newsData = [
         title: "Graduated from Konkuk University",
         description: "Successfully completed B.S. in Civil Engineering with minor in Computer Science.",
         type: "education"
-    },
-    {
-        date: "2023-11",
-        title: "Paper published in IEEE TGRS",
-        description: "Published 'ImplicitSAT: Learning Implicit Neural Representations for Satellite Image Enhancement' in IEEE Transactions on Geoscience and Remote Sensing.",
-        type: "publication"
     }
 ];
 
