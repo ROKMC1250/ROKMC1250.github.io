@@ -96,6 +96,41 @@ const skills = {
     "Tools & Platforms": ["Git", "Docker", "Linux", "AWS", "Google Colab"]
 };
 
+// Personal Information
+const personalInfo = {
+    profileImage: "assets/profile/profile_img.jpg",
+    name: "Junhyuk Heo",
+    description: "I conduct research in Remote Sensing field utilizing deep learning technologies. My goal is to better understand our Earth through satellite image analysis, computer vision, and artificial intelligence."
+};
+
+// News Data
+const newsData = [
+    {
+        date: "2024-03",
+        title: "Paper accepted at CVPR 2024",
+        description: "Our work on 'S^4DM: Structured State Space Model for Hyperspectral Image Denoising' has been accepted at CVPR 2024.",
+        type: "publication"
+    },
+    {
+        date: "2024-05",
+        title: "Joined telePIX as AI Engineer",
+        description: "Started working as an AI Engineer at telePIX, focusing on remote sensing and satellite image analysis.",
+        type: "career"
+    },
+    {
+        date: "2024-02",
+        title: "Graduated from Konkuk University",
+        description: "Successfully completed B.S. in Civil Engineering with minor in Computer Science.",
+        type: "education"
+    },
+    {
+        date: "2023-11",
+        title: "Paper published in IEEE TGRS",
+        description: "Published 'ImplicitSAT: Learning Implicit Neural Representations for Satellite Image Enhancement' in IEEE Transactions on Geoscience and Remote Sensing.",
+        type: "publication"
+    }
+];
+
 // Contact Information
 const contactInfo = {
     email: "your.email@example.com",

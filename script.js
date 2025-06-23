@@ -2,11 +2,42 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
     initNavigation();
+    initProfileImage();
+    renderNews();
     renderPublications();
     renderTimeline();
     initScrollAnimations();
     initSmoothScrolling();
 });
+
+// Initialize Profile Image and Hero Content
+function initProfileImage() {
+    const profilePlaceholder = document.querySelector('.image-placeholder-square');
+    if (profilePlaceholder && personalInfo.profileImage) {
+        profilePlaceholder.innerHTML = `<img src="${personalInfo.profileImage}" alt="${personalInfo.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">`;
+    }
+
+    // Update hero text content
+    const heroTitle = document.querySelector('.hero-title');
+    const heroDescription = document.querySelector('.hero-description');
+    
+    if (heroTitle) {
+        heroTitle.innerHTML = `<span class="highlight">${personalInfo.name}</span>`;
+    }
+    
+    if (heroDescription) {
+        heroDescription.textContent = personalInfo.description;
+    }
+
+    // Update contact links
+    const contactLinks = document.querySelectorAll('.contact-link-small');
+    if (contactLinks.length > 0 && contactInfo) {
+        contactLinks[0].href = `mailto:${contactInfo.email}`;
+        contactLinks[1].href = contactInfo.github;
+        contactLinks[2].href = contactInfo.scholar;
+        contactLinks[3].href = contactInfo.linkedin;
+    }
+}
 
 // Navigation Functions
 function initNavigation() {
@@ -59,6 +90,35 @@ function highlightActiveNavLink() {
             link.classList.add('active');
         }
     });
+}
+
+// News Rendering
+function renderNews() {
+    const newsList = document.getElementById('newsList');
+    
+    if (!newsList) return;
+
+    newsList.innerHTML = '';
+
+    newsData.forEach((news, index) => {
+        const newsItem = createNewsItem(news, index);
+        newsList.appendChild(newsItem);
+    });
+}
+
+function createNewsItem(news, index) {
+    const item = document.createElement('div');
+    item.className = 'news-item scroll-reveal';
+    item.style.animationDelay = `${index * 0.1}s`;
+
+    item.innerHTML = `
+        <div class="news-date">${news.date}</div>
+        <h3 class="news-title">${news.title}</h3>
+        <p class="news-description">${news.description}</p>
+        <span class="news-type ${news.type}">${news.type}</span>
+    `;
+
+    return item;
 }
 
 // Publications Rendering
@@ -142,9 +202,9 @@ function createTimelineItem(item, index) {
             <h3 class="timeline-title">${item.title}</h3>
             <div class="timeline-role">${item.role}</div>
         </div>
-        <div class="timeline-icon">
+        <div class="timeline-image">
             <img src="${item.image}" alt="${item.title}" 
-                 onerror="this.innerHTML='<i class=\\"fas fa-${getTimelineIcon(item.type)}\\"></i>';">
+                 onerror="this.innerHTML='<i class=\\"fas fa-${getTimelineIcon(item.type)}\\"></i>'">
         </div>
     `;
 
