@@ -21,8 +21,9 @@ const publications = [
         image: "assets/publications/Implisat_IGARSS_thumbnail.png",
         description: "Multi-scale feature reconstruction approach for satellite image super-resolution.",
         links: {
-            paper: "#",
-            poster: "#"
+            poster: "https://steveimm.id/rs-paint/",
+            paper: "https://arxiv.org/abs/2506.01234",
+            code: "https://github.com/SteveImmanuel/rs-paint"
         }
     },
     {
@@ -33,8 +34,9 @@ const publications = [
         image: "assets/publications/Implisat_thumbnail.png",
         description: "Implicit neural representations for enhanced satellite image processing.",
         links: {
-            paper: "#",
-            code: "#"
+            poster: "https://steveimm.id/implisat/",
+            paper: "https://openreview.net/pdf?id=gk2m2OIKMs",
+            code: "https://github.com/SteveImmanuel/implisat",
         }
     },
     {
@@ -45,8 +47,9 @@ const publications = [
         image: "assets/publications/Fewshot_thumbnail.png",
         description: "Few-shot learning approach for efficient remote sensing image classification.",
         links: {
-            paper: "#",
-            code: "#"
+            poster: "https://steveimm.id/rs-paint/",
+            paper: "https://arxiv.org/abs/2503.03785",
+            code: "https://github.com/SteveImmanuel/rs-paint"
         }
     }
 ];
@@ -62,7 +65,7 @@ const vitaeData = [
     },
     {
         period: "Sep 2019 - Apr 2021",
-        title: "Republic of Korea Marine Corps",
+        title: "R.O.K Marine Corps",
         role: "Sergeant",
         image: "assets/vitae/rokmc.png",
         type: "military"
@@ -106,8 +109,8 @@ const personalInfo = {
 // News Data
 const newsData = [
     {
-        date: "2024-03",
-        title: "Paper accepted at CVPR 2024",
+        date: "2024-11",
+        title: "Paper accepted at NeurIPS 2024 workshop on Neural Compression",
         description: "Our work on 'S^4DM: Structured State Space Model for Hyperspectral Image Denoising' has been accepted at CVPR 2024.",
         type: "publication"
     },
@@ -133,9 +136,8 @@ const newsData = [
 
 // Contact Information
 const contactInfo = {
-    email: "your.email@example.com",
-    github: "https://github.com/JubhyukHeo",
-    scholar: "https://scholar.google.com/citations?user=YOUR_ID",
-    linkedin: "https://linkedin.com/in/junhyuk-heo",
-    orcid: "https://orcid.org/0000-0000-0000-0000"
+    email: "hjh1037@gmail.com",
+    github: "https://github.com/ROKMC1250",
+    scholar: "https://scholar.google.com/citations?user=FIhe-wcAAAAJ&hl=ko",
+    linkedin: "https://www.linkedin.com/in/junhyuk-heo-51567a292/"
 }; 

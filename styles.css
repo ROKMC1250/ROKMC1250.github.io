@@ -133,7 +133,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 120px 0 80px;
+    padding: 120px 0 60px;
     background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
 }
 
@@ -267,6 +267,10 @@ body {
 /* Section Styles */
 section {
     padding: 80px 0;
+}
+
+section.news {
+    padding-top: 40px;
 }
 
 .section-title {
@@ -605,6 +609,10 @@ section {
         transform: translateY(-9px) rotate(-45deg);
     }
 
+    .hero {
+        padding: 100px 0 40px;
+    }
+
     .hero-content {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -638,11 +646,12 @@ section {
         flex-direction: row !important;
         align-items: flex-start;
         margin-bottom: 2rem;
+        position: relative;
     }
 
     .timeline-item:nth-child(odd) .timeline-content,
     .timeline-item:nth-child(even) .timeline-content {
-        margin: 0 0 0 20px;
+        margin: 0 0 0 100px;
         max-width: none;
         flex: 1;
         padding: 1rem 1.5rem;
@@ -653,18 +662,26 @@ section {
     }
 
     .timeline-image {
-        position: relative;
+        position: absolute;
         left: 0;
+        top: 0.5rem;
         transform: none;
         width: 80px;
         height: 80px;
         flex-shrink: 0;
-        margin-top: 0.5rem;
         border-radius: 50%;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     }
 
 
+
+    section {
+        padding: 60px 0;
+    }
+
+    section.news {
+        padding-top: 30px;
+    }
 
     .section-title {
         font-size: 2rem;
@@ -711,8 +728,13 @@ section {
 
     .timeline-item:nth-child(odd) .timeline-content,
     .timeline-item:nth-child(even) .timeline-content {
-        margin: 0 0 0 15px;
+        margin: 0 0 0 90px;
         padding: 0.75rem 1rem;
+    }
+
+    .timeline-image {
+        width: 70px;
+        height: 70px;
     }
 }
 
