@@ -80,6 +80,19 @@ function createPublicationCard(publication, index) {
     card.className = 'publication-card scroll-reveal';
     card.style.animationDelay = `${index * 0.1}s`;
 
+    // Generate links HTML
+    let linksHTML = '';
+    if (publication.links) {
+        linksHTML = '<div class="publication-links">';
+        Object.entries(publication.links).forEach(([type, url]) => {
+            const icon = getPublicationLinkIcon(type);
+            linksHTML += `<a href="${url}" class="publication-link" target="_blank">
+                <i class="${icon}"></i> ${type}
+            </a>`;
+        });
+        linksHTML += '</div>';
+    }
+
     card.innerHTML = `
         <img src="${publication.image}" alt="${publication.title}" 
              class="publication-image" 
@@ -88,17 +101,20 @@ function createPublicationCard(publication, index) {
             <h3 class="publication-title">${publication.title}</h3>
             <p class="publication-authors">${publication.authors}</p>
             <p class="publication-venue">${publication.venue} (${publication.year})</p>
-            ${publication.description ? `<p class="publication-description">${publication.description}</p>` : ''}
+            ${linksHTML}
         </div>
     `;
 
-    // Add click event for future functionality (modal, external link, etc.)
-    card.addEventListener('click', function() {
-        // Future: Open modal with more details or navigate to paper
-        console.log('Publication clicked:', publication.title);
-    });
-
     return card;
+}
+
+function getPublicationLinkIcon(type) {
+    switch(type.toLowerCase()) {
+        case 'paper': return 'fas fa-file-alt';
+        case 'poster': return 'fas fa-image';
+        case 'code': return 'fab fa-github';
+        default: return 'fas fa-link';
+    }
 }
 
 // Timeline/Vitae Rendering
@@ -124,8 +140,7 @@ function createTimelineItem(item, index) {
         <div class="timeline-content">
             <div class="timeline-date">${item.period}</div>
             <h3 class="timeline-title">${item.title}</h3>
-            <h4 class="timeline-subtitle">${item.subtitle}</h4>
-            <p class="timeline-description">${item.description}</p>
+            <div class="timeline-role">${item.role}</div>
         </div>
         <div class="timeline-icon">
             <img src="${item.image}" alt="${item.title}" 

@@ -6,7 +6,12 @@ const publications = [
         venue: "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
         year: "2024",
         image: "assets/publications/S^4DM_thumbnail.png",
-        description: "A novel approach for hyperspectral image denoising using structured state space models."
+        description: "A novel approach for hyperspectral image denoising using structured state space models.",
+        links: {
+            paper: "#",
+            poster: "#",
+            code: "#"
+        }
     },
     {
         title: "Implicit Satellite Image Super-Resolution using Multi-Scale Feature Reconstruction",
@@ -14,7 +19,11 @@ const publications = [
         venue: "IEEE International Geoscience and Remote Sensing Symposium (IGARSS)",
         year: "2023",
         image: "assets/publications/Implisat_IGARSS_thumbnail.png",
-        description: "Multi-scale feature reconstruction approach for satellite image super-resolution."
+        description: "Multi-scale feature reconstruction approach for satellite image super-resolution.",
+        links: {
+            paper: "#",
+            poster: "#"
+        }
     },
     {
         title: "ImplicitSAT: Learning Implicit Neural Representations for Satellite Image Enhancement",
@@ -22,7 +31,11 @@ const publications = [
         venue: "IEEE Transactions on Geoscience and Remote Sensing",
         year: "2023",
         image: "assets/publications/Implisat_thumbnail.png",
-        description: "Implicit neural representations for enhanced satellite image processing."
+        description: "Implicit neural representations for enhanced satellite image processing.",
+        links: {
+            paper: "#",
+            code: "#"
+        }
     },
     {
         title: "Few-Shot Learning for Remote Sensing Image Classification",
@@ -30,7 +43,11 @@ const publications = [
         venue: "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
         year: "2022",
         image: "assets/publications/Fewshot_thumbnail.png",
-        description: "Few-shot learning approach for efficient remote sensing image classification."
+        description: "Few-shot learning approach for efficient remote sensing image classification.",
+        links: {
+            paper: "#",
+            code: "#"
+        }
     }
 ];
 
@@ -39,24 +56,21 @@ const vitaeData = [
     {
         period: "May 2024 - Present",
         title: "telePIX",
-        subtitle: "AI Engineer",
-        description: "Remote Sensing specialist focusing on satellite image analysis and deep learning applications.",
+        role: "AI Engineer",
         image: "assets/vitae/telepix.png",
         type: "work"
     },
     {
-        period: "September 2019 - April 2021",
+        period: "Sep 2019 - Apr 2021",
         title: "Republic of Korea Marine Corps",
-        subtitle: "Honorably discharged as Sergeant",
-        description: "Served military service with distinction, developing leadership and teamwork skills.",
+        role: "Sergeant",
         image: "assets/vitae/rokmc.png",
         type: "military"
     },
     {
-        period: "March 2018 - February 2024",
+        period: "Mar 2018 - Feb 2024",
         title: "Konkuk University",
-        subtitle: "B.S in Civil Engineering",
-        description: "Major in Civil Engineering with minor in Computer Science. Focused on remote sensing, GIS, and deep learning applications in geospatial analysis.",
+        role: "B.S Civil Engineering",
         image: "assets/vitae/konkuk.png",
         type: "education"
     }
