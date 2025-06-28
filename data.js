@@ -5,9 +5,9 @@ const publications = [
         authors: "Junhyuk Heo",
         venue: "arxiv",
         year: "2025",
-        image: "assets/publications/S^4DM_thumbnail.png",
+        image: "assets/publications/S4DM_thumbnail_real.png",
         links: {
-            paper: "#",
+            paper: "assets/publications/S4DM.pdf",
         }
     },
     {
@@ -104,7 +104,7 @@ const personalInfo = {
 const newsData = [
     {
         date: "2025-03",
-        title: "Paper accepted at ICLRw 2025(Best Paper Award)",
+        title: "Paper accepted at IGARSS 2025 (Oral)",
         description: "Our work on 'Fourier-Modulated Implicit Neural Representation for Multispectral Satellite Image Compression' has been accepted at IEEE International Geoscience and Remote Sensing Symposium (Oral), 2025",
         type: "publication"
     },
