@@ -556,6 +556,19 @@ section.news {
     margin-bottom: 0.25rem;
 }
 
+.timeline-title a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+    border-bottom: 1px solid transparent;
+}
+
+.timeline-title a:hover {
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
+    text-shadow: 0 0 1px rgba(220, 20, 60, 0.3);
+}
+
 .timeline-role {
     color: var(--primary-color);
     font-weight: 500;

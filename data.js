@@ -55,7 +55,8 @@ const vitaeData = [
         title: "telePIX",
         role: "AI Engineer",
         image: "assets/vitae/telepix.png",
-        type: "work"
+        type: "work",
+        link: "https://telepix.net/"
     },
     {
         period: "Sep 2019 - Apr 2021",
@@ -97,7 +98,7 @@ const skills = {
 const personalInfo = {
     profileImage: "assets/profile/profile_img.jpg",
     name: "Junhyuk Heo",
-    description: "I conduct research in Remote Sensing field utilizing deep learning technologies. My goal is to better understand our Earth through satellite image analysis, computer vision, and artificial intelligence."
+    description: "I am a deep learning researcher in the AI team at Telepix. My research interests lie in various tasks utilizing satellite imagery, including generative modeling, segmentation, and image compression."
 };
 
 // News Data
@@ -139,5 +140,6 @@ const contactInfo = {
     email: "hjh1037@gmail.com",
     github: "https://github.com/ROKMC1250",
     scholar: "https://scholar.google.com/citations?user=FIhe-wcAAAAJ&hl=ko",
-    linkedin: "https://www.linkedin.com/in/junhyuk-heo-51567a292/"
+    linkedin: "https://www.linkedin.com/in/junhyuk-heo-51567a292/",
+    cv: "assets/profile/JunhyukHeo_CV.pdf"
 }; 

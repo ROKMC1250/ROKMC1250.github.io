@@ -36,6 +36,7 @@ function initProfileImage() {
         contactLinks[1].href = contactInfo.github;
         contactLinks[2].href = contactInfo.scholar;
         contactLinks[3].href = contactInfo.linkedin;
+        contactLinks[4].href = contactInfo.cv;
     }
 }
 
@@ -199,7 +200,7 @@ function createTimelineItem(item, index) {
     timelineItem.innerHTML = `
         <div class="timeline-content">
             <div class="timeline-date">${item.period}</div>
-            <h3 class="timeline-title">${item.title}</h3>
+            <h3 class="timeline-title">${item.link ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a>` : item.title}</h3>
             <div class="timeline-role">${item.role}</div>
         </div>
         <div class="timeline-image">
