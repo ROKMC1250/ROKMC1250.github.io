@@ -36,7 +36,7 @@ const publications = [
     },
     {
         title: "Neural Compression for Multispectral Satellite Images",
-        authors: "Junhyuk Heo, Yeonghyeon Na, Seokju Cho, Joonhyuk Park",
+        authors: "Woojin Cho*, Steve Andreas Immanuel*, Junhyuk Heo, and Darongsae Kwon",
         venue: "NeurIPSw",
         year: "2024",
         image: "assets/publications/Implisat_thumbnail.png",
