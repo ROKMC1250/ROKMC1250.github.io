@@ -98,7 +98,7 @@ const skills = {
 const personalInfo = {
     profileImage: "assets/profile/profile_img.jpg",
     name: "Junhyuk Heo",
-    description: "I am a deep learning researcher in the AI team at Telepix. My research interests lie in various tasks utilizing satellite imagery, including generative modeling, segmentation, and image compression."
+    description: "I am a researcher in TelePIX 2 dedicated to solving fundamental challenges in remote sensing by leveraging advanced neural networks. My work focuses on developing robust models for complex tasks unique to satellite imagery, including self-supervised SAR despeckling, few-shot segmentation, and high-fidelity image translation. My recent research explores the use of Implicit Neural Representations (INRs) for continuous and efficient signal representation, demonstrated in my work on neural image compression and pansharpening. Additionally, I am interested in exploring Physics-Informed Neural Networks (PINNs) to solve complex problems in earth science."
 };
 
 // News Data
@@ -141,5 +141,5 @@ const contactInfo = {
     github: "https://github.com/ROKMC1250",
     scholar: "https://scholar.google.com/citations?user=FIhe-wcAAAAJ&hl=ko",
     linkedin: "https://www.linkedin.com/in/junhyuk-heo-51567a292/",
-    cv: "assets/profile/JunhyukHeo_CV.pdf"
+    cv: "assets/profile/CV_Junhyuk_Heo.pdf"
 }; 
