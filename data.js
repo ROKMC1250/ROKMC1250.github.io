@@ -98,7 +98,7 @@ const skills = {
 const personalInfo = {
     profileImage: "assets/profile/profile_img.jpg",
     name: "Junhyuk Heo",
-    description: "I am a researcher in TelePIX 2 dedicated to solving fundamental challenges in remote sensing by leveraging advanced neural networks. My work focuses on developing robust models for complex tasks unique to satellite imagery, including self-supervised SAR despeckling, few-shot segmentation, and high-fidelity image translation. My recent research explores the use of Implicit Neural Representations (INRs) for continuous and efficient signal representation, demonstrated in my work on neural image compression and pansharpening. Additionally, I am interested in exploring Physics-Informed Neural Networks (PINNs) to solve complex problems in earth science."
+    description: "I'm an AI researcher in TelePIX. My research is focused on solving real-world problems through the lens of computer vision. I address challenging tasks such as complex image restoration and data-efficient learning for few-shot segmentation by applying generative models (diffusion-based, score-based, translation models). In parallel, my work explores continuous signal modeling using Implicit Neural Representations (INRs) for applications in neural image compression and spatial-spectral super-resolution. Recently, my research interest shift from a purely vision-centric perspective to a physics-aware approach. My goal is to integrate physics-based priors into vision models to build more robust and generalizable solutions for complex earth science applications."
 };
 
 // News Data
