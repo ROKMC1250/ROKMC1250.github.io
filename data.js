@@ -3,7 +3,7 @@ const publications = [
     {
         title: "Self-Supervised Score-Based Despeckling for SAR Imagery via Log-Domain Transformation",
         authors: "Junhyuk Heo",
-        venue: "arxiv",
+        venue: "preprint",
         year: "2025",
         image: "assets/publications/S4DM_thumbnail_real.png",
         links: {
