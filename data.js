@@ -141,5 +141,5 @@ const contactInfo = {
     github: "https://github.com/ROKMC1250",
     scholar: "https://scholar.google.com/citations?user=FIhe-wcAAAAJ&hl=ko",
     linkedin: "https://www.linkedin.com/in/junhyuk-heo-51567a292/",
-    cv: "assets/profile/CV_Junhyuk_Heo.pdf"
+    cv: "assets/profile/Junhyuk_Heo_CV.pdf"
 }; 
