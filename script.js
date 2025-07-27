@@ -26,7 +26,7 @@ function initProfileImage() {
     }
     
     if (heroDescription) {
-        heroDescription.textContent = personalInfo.description;
+        heroDescription.innerHTML = personalInfo.description;
     }
 
     // Update contact links
