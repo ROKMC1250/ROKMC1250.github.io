@@ -5,7 +5,7 @@ const publications = [
         authors: "Junhyuk Heo",
         venue: "under review",
         year: "2025",
-        image: "assets/publications/MANGO_thumbnail.png",
+        image: "assets/publications/MANGO_thumbnail.pdf",
         links: {
             paper: "assets/publications/MANGO.pdf",
             code: "https://github.com/ROKMC1250/MANGO",
@@ -141,7 +141,7 @@ const newsData = [
     {
         date: "2024-02",
         title: "Graduated from Konkuk University",
-        description: "Successfully completed B.S. in Civil Engineering with minor in Computer Science.",
+        description: "Successfully completed B.S. in Civil Engineering and Computer Science.",
         type: "education"
     }
 ];
