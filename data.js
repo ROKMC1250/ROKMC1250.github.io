@@ -1,6 +1,16 @@
 // Publications Data
 const publications = [
     {
+        title: "MANGO: MANGROVE GLOBAL OBSERVATIONS –A DATASET AND BENCHMARK",
+        authors: "Junhyuk Heo",
+        venue: "under review",
+        year: "2025",
+        image: "assets/publications/Mango_thumbnail.png",
+        links: {
+            paper: "assets/publications/Mango.pdf",
+        }
+    },
+    {
         title: "Self-Supervised Score-Based Despeckling for SAR Imagery via Log-Domain Transformation",
         authors: "Junhyuk Heo",
         venue: "preprint",
