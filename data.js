@@ -19,6 +19,7 @@ const publications = [
         image: "assets/publications/S4DM_thumbnail_real.png",
         links: {
             paper: "assets/publications/S4DM.pdf",
+            code: "https://github.com/ROKMC1250/S-4DM"
         }
     },
     {
