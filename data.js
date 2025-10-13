@@ -5,7 +5,7 @@ const publications = [
         authors: "Junhyuk Heo",
         venue: "under review",
         year: "2025",
-        image: "assets/publications/MANGO_thumbnail.pdf",
+        image: "assets/publications/MANGO_thumbnail.png",
         links: {
             paper: "assets/publications/MANGO.pdf",
             code: "https://github.com/ROKMC1250/MANGO",
