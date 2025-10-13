@@ -8,6 +8,7 @@ const publications = [
         image: "assets/publications/MANGO_thumbnail.png",
         links: {
             paper: "assets/publications/MANGO.pdf",
+            code: "https://github.com/ROKMC1250/MANGO",
         }
     },
     {
