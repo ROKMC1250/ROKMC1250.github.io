@@ -5,9 +5,9 @@ const publications = [
         authors: "Junhyuk Heo",
         venue: "under review",
         year: "2025",
-        image: "assets/publications/Mango_thumbnail.png",
+        image: "assets/publications/MANGO_thumbnail.png",
         links: {
-            paper: "assets/publications/Mango.pdf",
+            paper: "assets/publications/MANGO.pdf",
         }
     },
     {
