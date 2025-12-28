@@ -1,9 +1,19 @@
 // Publications Data
 const publications = [
     {
+        title: "Basis-Oriented Low-rank Transfer for Few-Shot and Test-Time Adaptation",
+        authors: "Junghwan Park, Woojin Cho, Junhyuk Heo, Darongsae Kwon, Kookjin Lee",
+        venue: "under review",
+        year: "2025",
+        image: "assets/publications/BOLT_thumbnail.png",
+        links: {
+            paper: "https://arxiv.org/pdf/2512.02441",
+        }
+    },
+    {
         title: "MANGO: MANGROVE GLOBAL OBSERVATIONS –A DATASET AND BENCHMARK",
         authors: "Junhyuk Heo",
-        venue: "under review",
+        venue: "preprint",
         year: "2025",
         image: "assets/publications/MANGO_thumbnail.png",
         links: {
