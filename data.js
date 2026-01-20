@@ -1,6 +1,25 @@
 // Publications Data
 const publications = [
     {
+        title: "MANGO: A GLOBAL SINGLE-DATE PAIRED DATASET FOR MANGROVE SEGMENTATION",
+        authors: "Junhyuk Heo, Beomkyu Choi, Hyunjin Shin, Darongsae Kwon",
+        venue: "under review",
+        year: "2026",
+        image: "assets/publications/MANGO_IGARSS_thumbnail.pdf",
+        links: {
+        }
+    },
+    {
+        title: "ELMZip: Onboard Satellite Image Compression via Extreme Learning Machines for Efficient Downlink",
+        authors: "Woojin Cho, Junghwan Park, Sangcheol Sim, Steve Andreas Immanuel, Junhyuk Heo, Darongsae Kwon",
+        venue: "under review",
+        year: "2026",
+        image: "assets/publications/ELMZip_thumbnail.png",
+        links: {
+        }
+    },
+
+    {
         title: "Basis-Oriented Low-rank Transfer for Few-Shot and Test-Time Adaptation",
         authors: "Junghwan Park, Woojin Cho, Junhyuk Heo, Darongsae Kwon, Kookjin Lee",
         venue: "under review",
@@ -17,7 +36,7 @@ const publications = [
         year: "2025",
         image: "assets/publications/MANGO_thumbnail.png",
         links: {
-            paper: "assets/publications/MANGO.pdf",
+            paper: "https://openreview.net/forum?id=d3dSicnYkN&referrer=%5Bthe%20profile%20of%20Junhyuk%20Heo%5D(%2Fprofile%3Fid%3D~Junhyuk_Heo1)",
             code: "https://github.com/ROKMC1250/MANGO",
         }
     },
@@ -28,7 +47,6 @@ const publications = [
         year: "2025",
         image: "assets/publications/S4DM_thumbnail_real.png",
         links: {
-            paper: "assets/publications/S4DM.pdf",
             code: "https://github.com/ROKMC1250/S-4DM"
         }
     },
