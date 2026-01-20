@@ -5,7 +5,7 @@ const publications = [
         authors: "Junhyuk Heo, Beomkyu Choi, Hyunjin Shin, Darongsae Kwon",
         venue: "under review",
         year: "2026",
-        image: "assets/publications/MANGO_IGARSS_thumbnail.pdf",
+        image: "assets/publications/MANGO_IGARSS_thumbnail.png",
         links: {
         }
     },
@@ -14,7 +14,7 @@ const publications = [
         authors: "Woojin Cho, Junghwan Park, Sangcheol Sim, Steve Andreas Immanuel, Junhyuk Heo, Darongsae Kwon",
         venue: "under review",
         year: "2026",
-        image: "assets/publications/ELMZip_thumbnail.png",
+        image: "assets/publications/ELMzip_thumbnail.png",
         links: {
         }
     },
