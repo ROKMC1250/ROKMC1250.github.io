@@ -138,7 +138,7 @@ const skills = {
 const personalInfo = {
     profileImage: "assets/profile/profile_img.jpg",
     name: "Junhyuk Heo",
-    description: "I'm an AI researcher in <a href='https://telepix.net/' target='_blank'>TelePIX</a>. My research seeks to solve real-world problems from an artificial intelligence perspective. I address challenging tasks such as complex image restoration and data-efficient learning for few-shot segmentation by applying generative models (diffusion-based, score-based, translation models). In parallel, my work explores continuous signal modeling using Implicit Neural Representations (INRs) for applications in neural image compression and spatial-spectral super-resolution. Recently, my research interest has shifted towards Vision-Language Models (VLMs). My primary goal is to build a unified model capable of solving various complex tasks in earth science"
+    description: "I'm an AI researcher in <a href='https://telepix.net/' target='_blank'>TelePIX</a>. My work focuses on machine learning for Earth observation, aiming to derive real-world value from satellite imagery for environmental monitoring and climate change. My interests include learning methods for extracting meaningful information from remote sensing data (e.g., target detection and semantic segmentation), as well as representation learning and foundation models. I also work on satellite data preprocessing, including atmospheric and radiometric correction, and I am increasingly interested in onboard processing and compression for more efficient use of satellite observations."
 };
 
 // News Data
