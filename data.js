@@ -6,7 +6,7 @@ const publications = [
         venue: "under review",
         year: "2026",
         image: "assets/publications/MANGO_IGARSS_thumbnail.png",
-        conference: "IGARSS",  // 학회 약어 (왼쪽 상단)
+        conference: "under review",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
         }
@@ -17,7 +17,7 @@ const publications = [
         venue: "under review",
         year: "2026",
         image: "assets/publications/ELMzip_thumbnail.png",
-        conference: "",  // 학회 약어 (왼쪽 상단)
+        conference: "under review",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
         }
@@ -29,7 +29,7 @@ const publications = [
         venue: "under review",
         year: "2025",
         image: "assets/publications/BOLT_thumbnail.png",
-        conference: "",  // 학회 약어 (왼쪽 상단)
+        conference: "under review",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
             paper: "https://arxiv.org/pdf/2512.02441",
@@ -38,10 +38,10 @@ const publications = [
     {
         title: "MANGO: MANGROVE GLOBAL OBSERVATIONS –A DATASET AND BENCHMARK",
         authors: "Junhyuk Heo",
-        venue: "preprint",
+        venue: "arxiv",
         year: "2025",
         image: "assets/publications/MANGO_thumbnail.png",
-        conference: "",  // 학회 약어 (왼쪽 상단)
+        conference: "preprint",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
             paper: "https://openreview.net/forum?id=d3dSicnYkN&referrer=%5Bthe%20profile%20of%20Junhyuk%20Heo%5D(%2Fprofile%3Fid%3D~Junhyuk_Heo1)",
@@ -51,7 +51,7 @@ const publications = [
     {
         title: "Self-Supervised Score-Based Despeckling for SAR Imagery via Log-Domain Transformation",
         authors: "Junhyuk Heo",
-        venue: "preprint",
+        venue: "arxiv",
         year: "2025",
         image: "assets/publications/S4DM_thumbnail_real.png",
         conference: "",  // 학회 약어 (왼쪽 상단)
