@@ -54,7 +54,7 @@ const publications = [
         venue: "arxiv",
         year: "2025",
         image: "assets/publications/S4DM_thumbnail_real.png",
-        conference: "",  // 학회 약어 (왼쪽 상단)
+        conference: "preprint",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
             code: "https://github.com/ROKMC1250/S-4DM"
