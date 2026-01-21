@@ -375,12 +375,49 @@ section.news {
     box-shadow: var(--shadow-lg);
 }
 
-.publication-image {
+.publication-image-wrapper {
+    position: relative;
     width: 100%;
     height: 200px;
-    object-fit: contain;
     border-bottom: 1px solid var(--border-color);
     background: var(--bg-secondary);
+}
+
+.publication-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.publication-badges {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+    pointer-events: none;
+}
+
+.badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.badge-conference {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.badge-award {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
 }
 
 .publication-content {
@@ -627,7 +664,16 @@ section.news {
     .hero-content {
         grid-template-columns: 1fr;
         gap: 2rem;
-        text-align: center;
+    }
+
+    .hero-text {
+        text-align: left;
+        order: 2;
+    }
+
+    .hero-image {
+        order: 1;
+        justify-content: center;
     }
 
     .hero-title {
@@ -636,6 +682,10 @@ section.news {
 
     .hero-description {
         font-size: 1rem;
+    }
+
+    .hero-contact {
+        justify-content: flex-start;
     }
 
     .image-placeholder-square {
@@ -702,14 +752,27 @@ section.news {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
+        padding: 0.85rem 0;
     }
     
     .news-date {
         min-width: auto;
+        font-size: 0.85rem;
     }
     
     .news-content {
-        gap: 0.5rem;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .news-title {
+        flex: 1 1 100%;
+        font-size: 0.9rem;
+    }
+
+    .news-type {
+        align-self: flex-start;
     }
 
     .container {

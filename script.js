@@ -155,10 +155,26 @@ function createPublicationCard(publication, index) {
         linksHTML += '</div>';
     }
 
+    // Generate badges HTML
+    let badgesHTML = '';
+    if (publication.conference || publication.award) {
+        badgesHTML = '<div class="publication-badges">';
+        if (publication.conference) {
+            badgesHTML += `<span class="badge badge-conference">${publication.conference}</span>`;
+        }
+        if (publication.award) {
+            badgesHTML += `<span class="badge badge-award">${publication.award}</span>`;
+        }
+        badgesHTML += '</div>';
+    }
+
     card.innerHTML = `
-        <img src="${publication.image}" alt="${publication.title}" 
-             class="publication-image" 
-             onerror="this.style.display='none';">
+        <div class="publication-image-wrapper">
+            <img src="${publication.image}" alt="${publication.title}" 
+                 class="publication-image" 
+                 onerror="this.style.display='none';">
+            ${badgesHTML}
+        </div>
         <div class="publication-content">
             <h3 class="publication-title">${publication.title}</h3>
             <p class="publication-authors">${publication.authors}</p>

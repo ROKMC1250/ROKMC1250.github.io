@@ -6,6 +6,8 @@ const publications = [
         venue: "under review",
         year: "2026",
         image: "assets/publications/MANGO_IGARSS_thumbnail.png",
+        conference: "IGARSS",  // 학회 약어 (왼쪽 상단)
+        award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
         }
     },
@@ -15,6 +17,8 @@ const publications = [
         venue: "under review",
         year: "2026",
         image: "assets/publications/ELMzip_thumbnail.png",
+        conference: "",  // 학회 약어 (왼쪽 상단)
+        award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
         }
     },
@@ -25,6 +29,8 @@ const publications = [
         venue: "under review",
         year: "2025",
         image: "assets/publications/BOLT_thumbnail.png",
+        conference: "",  // 학회 약어 (왼쪽 상단)
+        award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
             paper: "https://arxiv.org/pdf/2512.02441",
         }
@@ -35,6 +41,8 @@ const publications = [
         venue: "preprint",
         year: "2025",
         image: "assets/publications/MANGO_thumbnail.png",
+        conference: "",  // 학회 약어 (왼쪽 상단)
+        award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
             paper: "https://openreview.net/forum?id=d3dSicnYkN&referrer=%5Bthe%20profile%20of%20Junhyuk%20Heo%5D(%2Fprofile%3Fid%3D~Junhyuk_Heo1)",
             code: "https://github.com/ROKMC1250/MANGO",
@@ -46,6 +54,8 @@ const publications = [
         venue: "preprint",
         year: "2025",
         image: "assets/publications/S4DM_thumbnail_real.png",
+        conference: "",  // 학회 약어 (왼쪽 상단)
+        award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
             code: "https://github.com/ROKMC1250/S-4DM"
         }
@@ -53,9 +63,11 @@ const publications = [
     {
         title: "Fourier-Modulated Implicit Neural Representation for Multispectral Satellite Image Compression",
         authors: "Woojin Cho*, Steve Andreas Immanuel*, Junhyuk Heo, and Darongsae Kwon",
-        venue: "IGARSS (Oral)",
+        venue: "IEEE International Geoscience and Remote Sensing Symposium",
         year: "2025",
         image: "assets/publications/Implisat_IGARSS_thumbnail.png",
+        conference: "IGARSS",  // 학회 약어 (왼쪽 상단)
+        award: "Oral",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
             poster: "https://steveimm.id/implisat/",
             paper: "https://arxiv.org/abs/2506.01234",
@@ -65,9 +77,11 @@ const publications = [
     {
         title: "Tackling Few-Shot Segmentation in Remote Sensing via Inpainting Diffusion Model",
         authors: "Steve Andreas Immanuel, Woojin Cho, Junhyuk Heo, and Darongsae Kwon",
-        venue: "ICLRw (Best Paper Award)",
+        venue: "ICLR Machine Learning for Remote Sensing Workshop",
         year: "2025",
         image: "assets/publications/Fewshot_thumbnail.png",
+        conference: "ICLR-w",  // 학회 약어 (왼쪽 상단)
+        award: "Best Paper",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
             poster: "https://steveimm.id/rs-paint/",
             paper: "https://arxiv.org/abs/2503.03785",
@@ -77,9 +91,11 @@ const publications = [
     {
         title: "Neural Compression for Multispectral Satellite Images",
         authors: "Woojin Cho*, Steve Andreas Immanuel*, Junhyuk Heo, and Darongsae Kwon",
-        venue: "NeurIPSw",
+        venue: "NeurIPS Neural Compression Workshop",
         year: "2024",
         image: "assets/publications/Implisat_thumbnail.png",
+        conference: "NeurIPS-w",  // 학회 약어 (왼쪽 상단)
+        award: "Poster",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
             poster: "https://steveimm.id/implisat/",
             paper: "https://openreview.net/pdf?id=gk2m2OIKMs",
