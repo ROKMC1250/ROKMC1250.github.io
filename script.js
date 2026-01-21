@@ -110,13 +110,14 @@ function renderNews() {
 function createNewsItem(news, index) {
     const item = document.createElement('div');
     item.className = 'news-item scroll-reveal';
-    item.style.animationDelay = `${index * 0.1}s`;
+    item.style.animationDelay = `${index * 0.05}s`;
 
     item.innerHTML = `
         <div class="news-date">${news.date}</div>
-        <h3 class="news-title">${news.title}</h3>
-        <p class="news-description">${news.description}</p>
-        <span class="news-type ${news.type}">${news.type}</span>
+        <div class="news-content">
+            <div class="news-title">${news.title}</div>
+            <span class="news-type ${news.type}">${news.type}</span>
+        </div>
     `;
 
     return item;
@@ -284,19 +285,6 @@ window.addEventListener('scroll', debounce(function() {
         navbar.style.boxShadow = 'none';
     }
 }, 10));
-
-// Handle dark mode based on system preference
-function handleDarkMode() {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark-mode');
-    }
-}
-
-// Listen for changes in color scheme preference
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleDarkMode);
-
-// Initialize dark mode
-handleDarkMode();
 
 // Loading Animation
 window.addEventListener('load', function() {
