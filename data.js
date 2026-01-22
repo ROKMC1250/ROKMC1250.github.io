@@ -38,7 +38,7 @@ const publications = [
     {
         title: "MANGO: MANGROVE GLOBAL OBSERVATIONS –A DATASET AND BENCHMARK",
         authors: "Junhyuk Heo",
-        venue: "arxiv",
+        venue: "preprint",
         year: "2025",
         image: "assets/publications/MANGO_thumbnail.png",
         conference: "preprint",  // 학회 약어 (왼쪽 상단)
@@ -51,12 +51,13 @@ const publications = [
     {
         title: "Self-Supervised Score-Based Despeckling for SAR Imagery via Log-Domain Transformation",
         authors: "Junhyuk Heo",
-        venue: "arxiv",
+        venue: "preprint",
         year: "2025",
         image: "assets/publications/S4DM_thumbnail_real.png",
         conference: "preprint",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
+            paper: "https://arxiv.org/abs/2601.14334",
             code: "https://github.com/ROKMC1250/S-4DM"
         }
     },
