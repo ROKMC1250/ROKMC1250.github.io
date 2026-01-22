@@ -181,7 +181,7 @@ const newsData = [
     {
         date: "2024-05",
         title: "Joined telePIX as AI Engineer",
-        description: "Started working as an AI Engineer at telePIX, focusing on remote sensing and satellite image analysis.",
+        description: "Started working as an AI Researcher at telePIX, focusing on remote sensing and satellite image analysis.",
         type: "career"
     },
     {
