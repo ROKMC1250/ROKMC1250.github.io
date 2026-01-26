@@ -10,6 +10,15 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScrolling();
 });
 
+// Re-render news on window resize to adjust for mobile/desktop
+let resizeTimer;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+        renderNews();
+    }, 250);
+});
+
 // Initialize Profile Image and Hero Content
 function initProfileImage() {
     const profilePlaceholder = document.querySelector('.image-placeholder-square');
@@ -101,7 +110,12 @@ function renderNews() {
 
     newsList.innerHTML = '';
 
-    newsData.forEach((news, index) => {
+    // 모바일에서는 최대 3개만, 데스크톱에서는 5개만 표시
+    const isMobile = window.innerWidth <= 768;
+    const maxNews = isMobile ? 3 : 5;
+    const newsToShow = newsData.slice(0, maxNews);
+
+    newsToShow.forEach((news, index) => {
         const newsItem = createNewsItem(news, index);
         newsList.appendChild(newsItem);
     });

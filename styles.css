@@ -723,7 +723,7 @@ section.news {
 
     .hero-content {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 2rem;
         max-width: 600px;
         margin: 0 auto;
     }
@@ -743,7 +743,13 @@ section.news {
     }
 
     .hero-description {
-        font-size: 1.05rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
     .hero-contact {
@@ -751,8 +757,8 @@ section.news {
     }
 
     .image-placeholder-square {
-        width: 240px;
-        height: 240px;
+        width: 200px;
+        height: 200px;
         margin: 0 auto;
     }
 
@@ -760,6 +766,32 @@ section.news {
 
     .publications-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .publication-card {
+        border-radius: 18px;
+    }
+
+    .publication-image-wrapper {
+        height: 200px;
+    }
+
+    .publication-content {
+        padding: 1.5rem;
+    }
+
+    .publication-title {
+        font-size: 1.05rem;
+    }
+
+    .publication-authors {
+        font-size: 0.85rem;
+    }
+
+    .publication-link {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.85rem;
     }
 
     .timeline::before {
@@ -804,38 +836,61 @@ section.news {
     }
 
     section.news {
-        padding: 30px 0;
+        padding: 30px 0 20px;
     }
 
     .section-title {
         font-size: 1.75rem;
+        margin-bottom: 1.75rem;
+    }
+    
+    .section-title::after {
+        bottom: -8px;
+        width: 50px;
+        height: 3px;
+    }
+    
+    .news-list {
+        gap: 0;
+        max-width: 100%;
     }
     
     .news-item {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.5rem;
-        padding: 0.85rem 0;
+        gap: 0.4rem;
+        padding: 0.75rem 0.5rem;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .news-item:hover {
+        transform: none;
+        padding-left: 0.5rem;
     }
     
     .news-date {
         min-width: auto;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
+        color: #9ca3af;
     }
     
     .news-content {
         width: 100%;
-        flex-wrap: wrap;
-        gap: 0.75rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
     }
 
     .news-title {
         flex: 1 1 100%;
-        font-size: 0.9rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
     }
 
     .news-type {
         align-self: flex-start;
+        padding: 0.2rem 0.6rem;
+        font-size: 0.65rem;
     }
 
     .container {
@@ -845,32 +900,78 @@ section.news {
 
 @media (max-width: 480px) {
     .hero {
-        min-height: 350px;
-        max-height: 450px;
-        padding: 80px 0 30px;
+        min-height: 320px;
+        max-height: 400px;
+        padding: 80px 0 20px;
+    }
+
+    .hero-content {
+        gap: 1.5rem;
     }
 
     .hero-title {
         font-size: 1.85rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-description {
+        font-size: 0.875rem;
+        -webkit-line-clamp: 2;
+        margin-bottom: 1.25rem;
     }
 
     .hero-contact {
         justify-content: center;
+        gap: 0.75rem;
     }
 
     .contact-link-small {
-        width: 44px;
-        height: 44px;
-        font-size: 1.1rem;
+        width: 42px;
+        height: 42px;
+        font-size: 1.05rem;
     }
 
     .image-placeholder-square {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
     }
 
     .section-title {
-        font-size: 1.85rem;
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .section-title::after {
+        width: 45px;
+        height: 3px;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+
+    section.news {
+        padding: 25px 0 15px;
+    }
+
+    .news-item {
+        padding: 0.65rem 0.25rem;
+    }
+
+    .news-date {
+        font-size: 0.75rem;
+    }
+
+    .news-title {
+        font-size: 0.825rem;
+    }
+
+    .publications {
+        padding: 50px 0;
+    }
+
+    .publications .section-title {
+        margin-bottom: 2rem;
     }
 
     .timeline-image {
