@@ -29,6 +29,7 @@ body {
     color: var(--text-primary);
     background-color: var(--bg-primary);
     overflow-x: hidden;
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
 .container {
@@ -673,7 +674,7 @@ section.news {
 .footer {
     background: #f9fafb;
     border-top: 1px solid #e5e7eb;
-    padding: 2.5rem 0;
+    padding: 2.5rem 0 5rem;
     text-align: center;
     color: #6b7280;
     font-size: 0.9rem;
@@ -746,10 +747,6 @@ section.news {
         font-size: 0.95rem;
         line-height: 1.6;
         margin-bottom: 1.5rem;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
     }
 
     .hero-contact {
@@ -916,8 +913,8 @@ section.news {
 
     .hero-description {
         font-size: 0.875rem;
-        -webkit-line-clamp: 2;
         margin-bottom: 1.25rem;
+        line-height: 1.6;
     }
 
     .hero-contact {
@@ -992,6 +989,10 @@ section.news {
     .timeline-image {
         width: 70px;
         height: 70px;
+    }
+    
+    .footer {
+        padding: 2rem 0 4rem;
     }
 }
 
