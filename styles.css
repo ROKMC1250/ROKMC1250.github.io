@@ -123,7 +123,6 @@ body {
 /* Hero Section */
 .hero {
     min-height: 450px;
-    max-height: 550px;
     display: flex;
     align-items: center;
     padding: 110px 0 50px;
@@ -270,6 +269,8 @@ body {
 /* Section Styles */
 section {
     padding: 60px 0;
+    position: relative;
+    clear: both;
 }
 
 section.news {
@@ -717,9 +718,9 @@ section.news {
     }
 
     .hero {
-        min-height: 400px;
-        max-height: 500px;
-        padding: 90px 0 30px;
+        min-height: auto;
+        max-height: none;
+        padding: 90px 0 40px;
     }
 
     .hero-content {
