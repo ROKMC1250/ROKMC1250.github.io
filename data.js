@@ -10,7 +10,7 @@ const publications = [
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
             paper: "https://arxiv.org/pdf/2601.17039",
-            code: "https://github.com/ROKMC1250/MANGO"
+            code: "https://github.com/ROKMC1250/Mangrove_segmentation"
         }
     },
     {
