@@ -162,6 +162,25 @@ const personalInfo = {
 
 // News Data
 const newsData = [
+
+    {
+        date: "2026-03",
+        title: "Paper accepted at IGARSS 2026",
+        description: "Our work on 'MANGO: A GLOBAL SINGLE-DATE PAIRED DATASET FOR MANGROVE SEGMENTATION' has been accepted at IEEE International Geoscience and Remote Sensing Symposium, 2026",
+        type: "publication"
+    },
+    {
+        date: "2026-03",
+        title: "Paper accepted at IGARSS 2026",
+        description: "Our work on 'ELMZip: Onboard Satellite Image Compression via Extreme Learning Machines for Efficient Downlink' has been accepted at IEEE International Geoscience and Remote Sensing Symposium, 2026",
+        type: "publication"
+    },
+    {
+        date: "2026-02",
+        title: "Paper accepted at CVPR 2026",
+        description: "Our work on Basis-Oriented Low-rank Transfer for Few-Shot and Test-Time Adaptation' has been accepted at IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2026",
+        type: "publication"
+    },
     {
         date: "2025-03",
         title: "Paper accepted at IGARSS 2025 (Oral)",
