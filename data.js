@@ -3,10 +3,10 @@ const publications = [
     {
         title: "MANGO: A GLOBAL SINGLE-DATE PAIRED DATASET FOR MANGROVE SEGMENTATION",
         authors: "Junhyuk Heo, Beomkyu Choi, Hyunjin Shin, Darongsae Kwon",
-        venue: "under review",
+        venue: "IEEE International Geoscience and Remote Sensing Symposium",
         year: "2026",
         image: "assets/publications/MANGO_IGARSS_thumbnail.png",
-        conference: "under review",  // 학회 약어 (왼쪽 상단)
+        conference: "IGARSS 2026",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
             paper: "https://arxiv.org/pdf/2601.17039",
@@ -16,10 +16,10 @@ const publications = [
     {
         title: "ELMZip: Onboard Satellite Image Compression via Extreme Learning Machines for Efficient Downlink",
         authors: "Woojin Cho, Junghwan Park, Sangcheol Sim, Steve Andreas Immanuel, Junhyuk Heo, Darongsae Kwon",
-        venue: "under review",
+        venue: "IEEE International Geoscience and Remote Sensing Symposium",
         year: "2026",
         image: "assets/publications/ELMzip_thumbnail.png",
-        conference: "under review",  // 학회 약어 (왼쪽 상단)
+        conference: "IGARSS 2026",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
         }
@@ -28,10 +28,10 @@ const publications = [
     {
         title: "Basis-Oriented Low-rank Transfer for Few-Shot and Test-Time Adaptation",
         authors: "Junghwan Park, Woojin Cho, Junhyuk Heo, Darongsae Kwon, Kookjin Lee",
-        venue: "under review",
-        year: "2025",
+        venue: "CVPR 2026",
+        year: "2026",
         image: "assets/publications/BOLT_thumbnail.png",
-        conference: "under review",  // 학회 약어 (왼쪽 상단)
+        conference: "CVPR 2026",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
             paper: "https://arxiv.org/pdf/2512.02441",
@@ -69,7 +69,7 @@ const publications = [
         venue: "IEEE International Geoscience and Remote Sensing Symposium",
         year: "2025",
         image: "assets/publications/Implisat_IGARSS_thumbnail.png",
-        conference: "IGARSS",  // 학회 약어 (왼쪽 상단)
+        conference: "IGARSS 2025",  // 학회 약어 (왼쪽 상단)
         award: "Oral",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
             poster: "https://steveimm.id/implisat/",
@@ -83,7 +83,7 @@ const publications = [
         venue: "ICLR Machine Learning for Remote Sensing Workshop",
         year: "2025",
         image: "assets/publications/Fewshot_thumbnail.png",
-        conference: "ICLR-w",  // 학회 약어 (왼쪽 상단)
+        conference: "ICLRw 2025",  // 학회 약어 (왼쪽 상단)
         award: "Best Paper",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
             poster: "https://steveimm.id/rs-paint/",
@@ -97,8 +97,8 @@ const publications = [
         venue: "NeurIPS Neural Compression Workshop",
         year: "2024",
         image: "assets/publications/Implisat_thumbnail.png",
-        conference: "NeurIPS-w",  // 학회 약어 (왼쪽 상단)
-        award: "Poster",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
+        conference: "NeurIPSw 2024",  // 학회 약어 (왼쪽 상단)
+        award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
             poster: "https://steveimm.id/implisat/",
             paper: "https://openreview.net/pdf?id=gk2m2OIKMs",
