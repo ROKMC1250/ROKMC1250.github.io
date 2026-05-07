@@ -7,7 +7,7 @@ const publications = [
         year: "2026",
         image: "assets/publications/MANGO_IGARSS_thumbnail.png",
         conference: "IGARSS 2026",  // 학회 약어 (왼쪽 상단)
-        award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
+        award: "Oral",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
             paper: "https://arxiv.org/pdf/2601.17039",
             code: "https://github.com/ROKMC1250/Mangrove_segmentation"
@@ -153,7 +153,7 @@ const newsData = [
     {
         date: "2026-03",
         title: "Paper accepted at IGARSS 2026",
-        description: "Our work on 'MANGO: A GLOBAL SINGLE-DATE PAIRED DATASET FOR MANGROVE SEGMENTATION' has been accepted at IEEE International Geoscience and Remote Sensing Symposium, 2026",
+        description: "Our work on 'MANGO: A GLOBAL SINGLE-DATE PAIRED DATASET FOR MANGROVE SEGMENTATION' has been accepted at IEEE International Geoscience and Remote Sensing Symposium(Oral), 2026",
         type: "publication"
     },
     {
