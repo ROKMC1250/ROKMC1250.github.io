@@ -1,6 +1,17 @@
 // Publications Data
 const publications = [
     {
+        title: "FLAME: Physics-Guided Neural Operators for Onboard Satellite Methane Detection in Hyperspectral Imagery",
+        authors: "Junhyuk Heo, Junhwan Park, Sangcheol Sim, Beomkyu Choi, Woojin Cho",
+        venue: "Under Review(2026)",
+        year: "2026",
+        image: "assets/publications/FLAME_thumbnail.png",
+        conference: "Under Review",  // 학회 약어 (왼쪽 상단)
+        award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
+        links: {
+        }
+    },
+    {
         title: "MANGO: A GLOBAL SINGLE-DATE PAIRED DATASET FOR MANGROVE SEGMENTATION",
         authors: "Junhyuk Heo, Beomkyu Choi, Hyunjin Shin, Darongsae Kwon",
         venue: "IEEE International Geoscience and Remote Sensing Symposium",
@@ -31,7 +42,7 @@ const publications = [
         venue: "CVPR 2026",
         year: "2026",
         image: "assets/publications/BOLT_thumbnail.png",
-        conference: "CVPR 2026",  // 학회 약어 (왼쪽 상단)
+        conference: "CVPR",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
             paper: "https://arxiv.org/pdf/2512.02441",
@@ -152,14 +163,8 @@ const newsData = [
 
     {
         date: "2026-03",
-        title: "Paper accepted at IGARSS 2026",
+        title: "Two Papers accepted at IGARSS 2026",
         description: "Our work on 'MANGO: A GLOBAL SINGLE-DATE PAIRED DATASET FOR MANGROVE SEGMENTATION' has been accepted at IEEE International Geoscience and Remote Sensing Symposium(Oral), 2026",
-        type: "publication"
-    },
-    {
-        date: "2026-03",
-        title: "Paper accepted at IGARSS 2026",
-        description: "Our work on 'ELMZip: Onboard Satellite Image Compression via Extreme Learning Machines for Efficient Downlink' has been accepted at IEEE International Geoscience and Remote Sensing Symposium, 2026",
         type: "publication"
     },
     {
