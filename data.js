@@ -2,8 +2,8 @@
 const publications = [
     {
         title: "FLAME: Physics-Guided Neural Operators for Onboard Satellite Methane Detection in Hyperspectral Imagery",
-        authors: "Junhyuk Heo, Junhwan Park, Sangcheol Sim, Beomkyu Choi, Woojin Cho",
-        venue: "Under Review(2026)",
+        authors: "Junhyuk Heo, Junghwan Park, Sangcheol Sim, Beomkyu Choi, Woojin Cho",
+        venue: "Under Review",
         year: "2026",
         image: "assets/publications/FLAME_thumbnail.png",
         conference: "Under Review",  // 학회 약어 (왼쪽 상단)
@@ -39,10 +39,10 @@ const publications = [
     {
         title: "Basis-Oriented Low-rank Transfer for Few-Shot and Test-Time Adaptation",
         authors: "Junghwan Park, Woojin Cho, Junhyuk Heo, Darongsae Kwon, Kookjin Lee",
-        venue: "CVPR 2026",
+        venue: "CVPR",
         year: "2026",
         image: "assets/publications/BOLT_thumbnail.png",
-        conference: "CVPR",  // 학회 약어 (왼쪽 상단)
+        conference: "CVPR 2026",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
             paper: "https://arxiv.org/pdf/2512.02441",
