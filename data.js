@@ -3,10 +3,10 @@ const publications = [
     {
         title: "FLAME: Physics-Guided Neural Operators for Onboard Satellite Methane Detection in Hyperspectral Imagery",
         authors: "Junhyuk Heo, Junghwan Park, Sangcheol Sim, Beomkyu Choi, Woojin Cho",
-        venue: "Under Review",
+        venue: "ICML AI4Science Workshop",
         year: "2026",
         image: "assets/publications/FLAME_thumbnail.png",
-        conference: "Under Review",  // 학회 약어 (왼쪽 상단)
+        conference: "ICMLw 2026",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
         }
@@ -162,8 +162,14 @@ const personalInfo = {
 const newsData = [
 
     {
+        date: "2026-05",
+        title: "Paper accepted at ICMLw 2026",
+        description: "Our work on 'FLAME: Physics-Guided Neural Operators for Onboard Satellite Methane Detection in Hyperspectral Imagery' has been accepted at ICML AI4Science Workshop, 2026",
+        type: "publication"
+    },
+    {
         date: "2026-03",
-        title: "Two Papers accepted at IGARSS 2026",
+        title: "Two Papers accepted at IGARSS 2026(1 Oral, 1 Poster)",
         description: "Our work on 'MANGO: A GLOBAL SINGLE-DATE PAIRED DATASET FOR MANGROVE SEGMENTATION' has been accepted at IEEE International Geoscience and Remote Sensing Symposium(Oral), 2026",
         type: "publication"
     },
