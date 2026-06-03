@@ -9,6 +9,7 @@ const publications = [
         conference: "ICMLw 2026",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
+            paper: "https://arxiv.org/abs/2606.01577"
         }
     },
     {
