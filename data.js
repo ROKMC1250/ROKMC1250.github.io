@@ -1,6 +1,19 @@
 // Publications Data
 const publications = [
     {
+        title: "Few-Shot Open-Vocabulary Remote Sensing Segmentation via Textual Inversion",
+        authors: "Junhyuk Heo, Junghwan Park",
+        venue: "ECCV TerraBytes2 Workshop",
+        year: "2026",
+        image: "assets/publications/ECCVw_thumbnail.png",
+        conference: "ECCVw 2026",  // 학회 약어 (왼쪽 상단)
+        award: "Oral",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
+        links: {
+            paper: "https://arxiv.org/abs/2606.01577v2",
+            code: "https://github.com/ROKMC1250/FewShot-OVRS-TI"
+        }
+    },
+    {
         title: "FLAME: Physics-Guided Neural Operators for Onboard Satellite Methane Detection in Hyperspectral Imagery",
         authors: "Junhyuk Heo, Junghwan Park, Sangcheol Sim, Beomkyu Choi, Woojin Cho",
         venue: "ICML AI4Science Workshop",
@@ -9,7 +22,8 @@ const publications = [
         conference: "ICMLw 2026",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
-            paper: "https://arxiv.org/abs/2606.01577"
+            paper: "https://arxiv.org/abs/2606.01577v2",
+            code: "https://github.com/ROKMC1250/FLAME"
         }
     },
     {
@@ -162,6 +176,12 @@ const personalInfo = {
 // News Data
 const newsData = [
 
+    {
+        date: "2026-07",
+        title: "Paper accepted at ECCVw 2026",
+        description: "Our work on 'FLAME: Physics-Guided Neural Operators for Onboard Satellite Methane Detection in Hyperspectral Imagery' has been accepted at ICML AI4Science Workshop, 2026",
+        type: "publication"
+    },
     {
         date: "2026-05",
         title: "Paper accepted at ICMLw 2026",
