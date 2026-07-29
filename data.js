@@ -178,7 +178,7 @@ const newsData = [
 
     {
         date: "2026-07",
-        title: "Paper accepted at ECCVw 2026(Oral)",
+        title: "Paper accepted at ECCVw 2026 (Oral)",
         description: "Our work on 'FLAME: Physics-Guided Neural Operators for Onboard Satellite Methane Detection in Hyperspectral Imagery' has been accepted at ICML AI4Science Workshop, 2026",
         type: "publication"
     },
