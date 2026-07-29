@@ -9,7 +9,7 @@ const publications = [
         conference: "ECCVw 2026",  // 학회 약어 (왼쪽 상단)
         award: "Oral",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
-            paper: "https://arxiv.org/abs/2606.01577v2",
+            paper: "https://arxiv.org/abs/2607.25563",
             code: "https://github.com/ROKMC1250/FewShot-OVRS-TI"
         }
     },
@@ -178,7 +178,7 @@ const newsData = [
 
     {
         date: "2026-07",
-        title: "Paper accepted at ECCVw 2026",
+        title: "Paper accepted at ECCVw 2026(Oral)",
         description: "Our work on 'FLAME: Physics-Guided Neural Operators for Onboard Satellite Methane Detection in Hyperspectral Imagery' has been accepted at ICML AI4Science Workshop, 2026",
         type: "publication"
     },
