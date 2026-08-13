@@ -1,192 +1,253 @@
-// DOM Content Loaded Event
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
+'use strict';
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+document.addEventListener('DOMContentLoaded', function () {
     initNavigation();
     initProfileImage();
     renderNews();
     renderPublications();
     renderTimeline();
     initScrollAnimations();
-    initSmoothScrolling();
 });
 
-// Re-render news on window resize to adjust for mobile/desktop
-let resizeTimer;
-window.addEventListener('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function() {
-        renderNews();
-    }, 250);
-});
+/* ---------- Icons -------------------------------------------------------- */
+// Icons come from the inline <svg> sprite in index.html, so they render even if
+// the network drops. Previously these were Font Awesome classes served from a
+// CDN — when that request failed, every icon silently vanished.
+function icon(name) {
+    return `<svg class="icon" aria-hidden="true"><use href="#i-${name}"/></svg>`;
+}
 
-// Initialize Profile Image and Hero Content
+function publicationLinkIcon(type) {
+    switch (type.toLowerCase()) {
+        case 'paper': return 'paper';
+        case 'poster': return 'poster';
+        case 'code': return 'github';
+        default: return 'link';
+    }
+}
+
+function timelineIcon(type) {
+    switch (type) {
+        case 'work': return 'briefcase';
+        case 'education': return 'scholar';
+        case 'military': return 'shield';
+        default: return 'link';
+    }
+}
+
+/* ---------- Hero --------------------------------------------------------- */
 function initProfileImage() {
-    const profilePlaceholder = document.querySelector('.image-placeholder-square');
-    if (profilePlaceholder && personalInfo.profileImage) {
-        profilePlaceholder.innerHTML = `<img src="${personalInfo.profileImage}" alt="${personalInfo.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">`;
+    const img = document.querySelector('.image-placeholder-square img');
+    if (img && personalInfo.profileImage && !img.src.endsWith(personalInfo.profileImage)) {
+        img.src = personalInfo.profileImage;
     }
 
-    // Update hero text content
     const heroTitle = document.querySelector('.hero-title');
-    const heroDescription = document.querySelector('.hero-description');
-    
     if (heroTitle) {
         heroTitle.innerHTML = `<span class="highlight">${personalInfo.name}</span>`;
     }
-    
+
+    const heroDescription = document.querySelector('.hero-description');
     if (heroDescription) {
         heroDescription.innerHTML = personalInfo.description;
     }
 
-    // Update contact links
-    const contactLinks = document.querySelectorAll('.contact-link-small');
-    if (contactLinks.length > 0 && contactInfo) {
-        contactLinks[0].href = `mailto:${contactInfo.email}`;
-        contactLinks[1].href = contactInfo.github;
-        contactLinks[2].href = contactInfo.scholar;
-        contactLinks[3].href = contactInfo.linkedin;
-        contactLinks[4].href = contactInfo.cv;
+    // Keyed by data-contact so reordering the markup can never mismatch links.
+    if (typeof contactInfo === 'object' && contactInfo) {
+        document.querySelectorAll('[data-contact]').forEach(link => {
+            const key = link.dataset.contact;
+            const value = contactInfo[key];
+            if (!value) return;
+            link.href = key === 'email' ? `mailto:${value}` : value;
+        });
     }
 }
 
-// Navigation Functions
+/* ---------- Navigation --------------------------------------------------- */
 function initNavigation() {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
-    const navLinks = document.querySelectorAll('.nav-link');
+    if (!hamburger || !navMenu) return;
 
-    // Toggle mobile menu
-    hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
+    const setMenu = open => {
+        hamburger.classList.toggle('active', open);
+        navMenu.classList.toggle('active', open);
+        hamburger.setAttribute('aria-expanded', String(open));
+    };
+
+    hamburger.addEventListener('click', event => {
+        event.stopPropagation();
+        setMenu(!navMenu.classList.contains('active'));
     });
 
-    // Close menu when clicking on a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+    navMenu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => setMenu(false));
+    });
+
+    document.addEventListener('click', event => {
+        if (!navMenu.classList.contains('active')) return;
+        if (!hamburger.contains(event.target) && !navMenu.contains(event.target)) setMenu(false);
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') setMenu(false);
+    });
+
+    initNavbarScrollState();
+    initActiveNavLink();
+}
+
+// Toggles a class instead of writing inline styles, and reads scrollY at most
+// once per animation frame — the old handler ran on every scroll event.
+function initNavbarScrollState() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
+    let queued = false;
+    const update = () => {
+        queued = false;
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', () => {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(update);
+    }, { passive: true });
+
+    update();
+}
+
+// IntersectionObserver instead of measuring offsetTop/offsetHeight for every
+// section on every scroll event, which forced a synchronous layout each time.
+function initActiveNavLink() {
+    const links = new Map();
+    document.querySelectorAll('.nav-link').forEach(link => {
+        const id = (link.getAttribute('href') || '').slice(1);
+        if (id) links.set(id, link);
+    });
+
+    const sections = [...links.keys()]
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+    if (!sections.length || !('IntersectionObserver' in window)) return;
+
+    const visible = new Set();
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) visible.add(entry.target.id);
+            else visible.delete(entry.target.id);
         });
-    });
 
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!hamburger.contains(event.target) && !navMenu.contains(event.target)) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }
-    });
+        // Topmost visible section wins, so the highlight matches reading order.
+        const active = sections.find(section => visible.has(section.id));
+        links.forEach((link, id) => link.classList.toggle('active', !!active && id === active.id));
+    }, { rootMargin: '-72px 0px -60% 0px' });
 
-    // Highlight active navigation link based on scroll position
-    window.addEventListener('scroll', highlightActiveNavLink);
+    sections.forEach(section => observer.observe(section));
 }
 
-function highlightActiveNavLink() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    let currentSection = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.offsetHeight;
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-            currentSection = section.getAttribute('id');
-        }
-    });
+/* ---------- Scroll reveal ------------------------------------------------ */
+let revealObserver = null;
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSection}`) {
-            link.classList.add('active');
-        }
-    });
+function initScrollAnimations() {
+    // Without IntersectionObserver, .scroll-reveal would stay at opacity 0
+    // forever — reveal everything up front rather than hiding the content.
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+        document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('revealed'));
+        return;
+    }
+
+    revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('revealed');
+            revealObserver.unobserve(entry.target);
+        });
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+
+    observeReveals(document);
 }
 
-// News Rendering
+// Must be called for any .scroll-reveal element added after page load,
+// otherwise it never receives .revealed and stays invisible.
+function observeReveals(root) {
+    if (!revealObserver) {
+        root.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('revealed'));
+        return;
+    }
+    root.querySelectorAll('.scroll-reveal:not(.revealed)').forEach(el => revealObserver.observe(el));
+}
+
+/* ---------- News --------------------------------------------------------- */
+// Renders every item once. How many are visible is a CSS media-query concern:
+// re-rendering on resize used to blank the whole list, because mobile browsers
+// fire `resize` when the address bar collapses and the fresh .scroll-reveal
+// nodes were never handed to the observer.
 function renderNews() {
     const newsList = document.getElementById('newsList');
-    
     if (!newsList) return;
 
-    newsList.innerHTML = '';
-
-    // 모바일에서는 최대 3개만, 데스크톱에서는 5개만 표시
-    const isMobile = window.innerWidth <= 768;
-    const maxNews = isMobile ? 3 : 5;
-    const newsToShow = newsData.slice(0, maxNews);
-
-    newsToShow.forEach((news, index) => {
-        const newsItem = createNewsItem(news, index);
-        newsList.appendChild(newsItem);
+    const fragment = document.createDocumentFragment();
+    newsData.forEach((news, index) => {
+        const item = document.createElement('div');
+        item.className = 'news-item scroll-reveal';
+        item.style.transitionDelay = `${Math.min(index, 5) * 0.04}s`;
+        item.innerHTML = `
+            <div class="news-date">${news.date}</div>
+            <div class="news-content">
+                <div class="news-title">${news.title}</div>
+                <span class="news-type ${news.type}">${news.type}</span>
+            </div>
+        `;
+        fragment.appendChild(item);
     });
+
+    newsList.replaceChildren(fragment);
+    observeReveals(newsList);
 }
 
-function createNewsItem(news, index) {
-    const item = document.createElement('div');
-    item.className = 'news-item scroll-reveal';
-    item.style.animationDelay = `${index * 0.05}s`;
-
-    item.innerHTML = `
-        <div class="news-date">${news.date}</div>
-        <div class="news-content">
-            <div class="news-title">${news.title}</div>
-            <span class="news-type ${news.type}">${news.type}</span>
-        </div>
-    `;
-
-    return item;
-}
-
-// Publications Rendering
+/* ---------- Publications ------------------------------------------------- */
 function renderPublications() {
-    const publicationsGrid = document.getElementById('publicationsGrid');
-    
-    if (!publicationsGrid) return;
+    const grid = document.getElementById('publicationsGrid');
+    if (!grid) return;
 
-    publicationsGrid.innerHTML = '';
-
-    publications.forEach((pub, index) => {
-        const pubCard = createPublicationCard(pub, index);
-        publicationsGrid.appendChild(pubCard);
-    });
+    const fragment = document.createDocumentFragment();
+    publications.forEach((pub, index) => fragment.appendChild(createPublicationCard(pub, index)));
+    grid.replaceChildren(fragment);
+    observeReveals(grid);
 }
 
 function createPublicationCard(publication, index) {
     const card = document.createElement('div');
     card.className = 'publication-card scroll-reveal';
-    card.style.animationDelay = `${index * 0.1}s`;
+    card.style.transitionDelay = `${Math.min(index, 5) * 0.06}s`;
 
-    // Generate links HTML
     let linksHTML = '';
-    if (publication.links) {
-        linksHTML = '<div class="publication-links">';
-        Object.entries(publication.links).forEach(([type, url]) => {
-            const icon = getPublicationLinkIcon(type);
-            linksHTML += `<a href="${url}" class="publication-link" target="_blank">
-                <i class="${icon}"></i> ${type}
-            </a>`;
-        });
-        linksHTML += '</div>';
+    if (publication.links && Object.keys(publication.links).length) {
+        const items = Object.entries(publication.links)
+            .map(([type, url]) => `<a href="${url}" class="publication-link" target="_blank" rel="noopener">${icon(publicationLinkIcon(type))}<span>${type}</span></a>`)
+            .join('');
+        linksHTML = `<div class="publication-links">${items}</div>`;
     }
 
-    // Generate badges HTML
     let badgesHTML = '';
     if (publication.conference || publication.award) {
-        badgesHTML = '<div class="publication-badges">';
-        if (publication.conference) {
-            badgesHTML += `<span class="badge badge-conference">${publication.conference}</span>`;
-        }
-        if (publication.award) {
-            badgesHTML += `<span class="badge badge-award">${publication.award}</span>`;
-        }
-        badgesHTML += '</div>';
+        badgesHTML = `<div class="publication-badges">
+            ${publication.conference ? `<span class="badge badge-conference">${publication.conference}</span>` : '<span></span>'}
+            ${publication.award ? `<span class="badge badge-award">${publication.award}</span>` : ''}
+        </div>`;
     }
+
+    // First two cards are above the fold on desktop; the rest load lazily.
+    const loading = index < 2 ? 'eager' : 'lazy';
 
     card.innerHTML = `
         <div class="publication-image-wrapper">
-            <img src="${publication.image}" alt="${publication.title}" 
-                 class="publication-image" 
-                 onerror="this.style.display='none';">
+            <img src="${publication.image}" alt="" class="publication-image"
+                 loading="${loading}" decoding="async" onerror="this.remove()">
             ${badgesHTML}
         </div>
         <div class="publication-content">
@@ -200,204 +261,43 @@ function createPublicationCard(publication, index) {
     return card;
 }
 
-function getPublicationLinkIcon(type) {
-    switch(type.toLowerCase()) {
-        case 'paper': return 'fas fa-file-alt';
-        case 'poster': return 'fas fa-image';
-        case 'code': return 'fab fa-github';
-        default: return 'fas fa-link';
-    }
-}
-
-// Timeline/Vitae Rendering
+/* ---------- Vitae / timeline -------------------------------------------- */
 function renderTimeline() {
-    const timelineContainer = document.getElementById('timelineContainer');
-    
-    if (!timelineContainer) return;
+    const container = document.getElementById('timelineContainer');
+    if (!container) return;
 
-    timelineContainer.innerHTML = '';
-
-    vitaeData.forEach((item, index) => {
-        const timelineItem = createTimelineItem(item, index);
-        timelineContainer.appendChild(timelineItem);
-    });
+    const fragment = document.createDocumentFragment();
+    vitaeData.forEach((item, index) => fragment.appendChild(createTimelineItem(item, index)));
+    container.replaceChildren(fragment);
+    observeReveals(container);
 }
 
 function createTimelineItem(item, index) {
     const timelineItem = document.createElement('div');
     timelineItem.className = 'timeline-item scroll-reveal';
-    timelineItem.style.animationDelay = `${index * 0.2}s`;
+    timelineItem.style.transitionDelay = `${Math.min(index, 5) * 0.08}s`;
+
+    const title = item.link
+        ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a>`
+        : item.title;
 
     timelineItem.innerHTML = `
         <div class="timeline-content">
             <div class="timeline-date">${item.period}</div>
-            <h3 class="timeline-title">${item.link ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a>` : item.title}</h3>
+            <h3 class="timeline-title">${title}</h3>
             <div class="timeline-role">${item.role}</div>
         </div>
         <div class="timeline-image">
-            <img src="${item.image}" alt="${item.title}" 
-                 onerror="this.innerHTML='<i class=\\"fas fa-${getTimelineIcon(item.type)}\\"></i>'">
+            <img src="${item.image}" alt="${item.title}" loading="lazy" decoding="async">
         </div>
     `;
 
+    // Setting innerHTML on an <img> does nothing, so the old inline onerror
+    // left a broken-image box. Swap in the icon on the parent instead.
+    const img = timelineItem.querySelector('.timeline-image img');
+    img.addEventListener('error', () => {
+        img.parentElement.innerHTML = `<span class="icon-fallback">${icon(timelineIcon(item.type))}</span>`;
+    }, { once: true });
+
     return timelineItem;
 }
-
-function getTimelineIcon(type) {
-    switch(type) {
-        case 'work': return 'briefcase';
-        case 'education': return 'graduation-cap';
-        case 'military': return 'shield-alt';
-        default: return 'circle';
-    }
-}
-
-// Scroll Animations
-function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Observe all elements with scroll-reveal class
-    document.querySelectorAll('.scroll-reveal').forEach(element => {
-        observer.observe(element);
-    });
-}
-
-// Smooth Scrolling
-function initSmoothScrolling() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const offsetTop = target.offsetTop - 70; // Account for fixed navbar
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-}
-
-// Utility Functions
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Navbar Background on Scroll
-window.addEventListener('scroll', debounce(function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
-    }
-}, 10));
-
-// Loading Animation
-window.addEventListener('load', function() {
-    document.body.classList.add('loaded');
-    
-    // Add fade-in animation to hero section
-    const heroSection = document.querySelector('.hero');
-    if (heroSection) {
-        heroSection.classList.add('fade-in-up');
-    }
-});
-
-// Error Handling for Images
-function handleImageError(img) {
-    img.style.display = 'none';
-    const parent = img.parentElement;
-    if (parent) {
-        const placeholder = document.createElement('div');
-        placeholder.className = 'image-placeholder-error';
-        placeholder.innerHTML = '<i class="fas fa-image"></i><p>Image not found</p>';
-        parent.appendChild(placeholder);
-    }
-}
-
-// Add error handling to all images
-document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-        img.addEventListener('error', function() {
-            handleImageError(this);
-        });
-    });
-});
-
-// Performance optimization: Lazy loading for images
-function initLazyLoading() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-
-    images.forEach(img => imageObserver.observe(img));
-}
-
-// Contact Form Handling (if needed in the future)
-function initContactForm() {
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Handle form submission
-            console.log('Contact form submitted');
-        });
-    }
-}
-
-// Analytics and Tracking (placeholder for future use)
-function trackPageView() {
-    // Placeholder for analytics tracking
-    console.log('Page view tracked');
-}
-
-// Initialize additional features
-document.addEventListener('DOMContentLoaded', function() {
-    initLazyLoading();
-    initContactForm();
-    trackPageView();
-});
-
-// Export functions for testing or external use
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        renderPublications,
-        renderTimeline,
-        initScrollAnimations,
-        initNavigation
-    };
-} 

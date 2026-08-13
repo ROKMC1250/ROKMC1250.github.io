@@ -5,7 +5,7 @@ const publications = [
         authors: "Junhyuk Heo, Junghwan Park",
         venue: "ECCV TerraBytes2 Workshop",
         year: "2026",
-        image: "assets/publications/ECCVw_thumbnail.png",
+        image: "assets/publications/ECCVw_thumbnail.webp",
         conference: "ECCVw 2026",  // 학회 약어 (왼쪽 상단)
         award: "Oral",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
@@ -18,7 +18,7 @@ const publications = [
         authors: "Junhyuk Heo, Junghwan Park, Sangcheol Sim, Beomkyu Choi, Woojin Cho",
         venue: "ICML AI4Science Workshop",
         year: "2026",
-        image: "assets/publications/FLAME_thumbnail.png",
+        image: "assets/publications/FLAME_thumbnail.webp",
         conference: "ICMLw 2026",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
@@ -31,7 +31,7 @@ const publications = [
         authors: "Junhyuk Heo, Beomkyu Choi, Hyunjin Shin, Darongsae Kwon",
         venue: "IEEE International Geoscience and Remote Sensing Symposium",
         year: "2026",
-        image: "assets/publications/MANGO_IGARSS_thumbnail.png",
+        image: "assets/publications/MANGO_IGARSS_thumbnail.webp",
         conference: "IGARSS 2026",  // 학회 약어 (왼쪽 상단)
         award: "Oral",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
@@ -44,7 +44,7 @@ const publications = [
         authors: "Woojin Cho, Junghwan Park, Sangcheol Sim, Steve Andreas Immanuel, Junhyuk Heo, Darongsae Kwon",
         venue: "IEEE International Geoscience and Remote Sensing Symposium",
         year: "2026",
-        image: "assets/publications/ELMzip_thumbnail.png",
+        image: "assets/publications/ELMzip_thumbnail.webp",
         conference: "IGARSS 2026",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
@@ -56,7 +56,7 @@ const publications = [
         authors: "Junghwan Park, Woojin Cho, Junhyuk Heo, Darongsae Kwon, Kookjin Lee",
         venue: "CVPR",
         year: "2026",
-        image: "assets/publications/BOLT_thumbnail.png",
+        image: "assets/publications/BOLT_thumbnail.webp",
         conference: "CVPR 2026",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
@@ -68,7 +68,7 @@ const publications = [
         authors: "Junhyuk Heo",
         venue: "preprint",
         year: "2025",
-        image: "assets/publications/S4DM_thumbnail_real.png",
+        image: "assets/publications/S4DM_thumbnail_real.webp",
         conference: "preprint",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
@@ -81,7 +81,7 @@ const publications = [
         authors: "Woojin Cho*, Steve Andreas Immanuel*, Junhyuk Heo, and Darongsae Kwon",
         venue: "IEEE International Geoscience and Remote Sensing Symposium",
         year: "2025",
-        image: "assets/publications/Implisat_IGARSS_thumbnail.png",
+        image: "assets/publications/Implisat_IGARSS_thumbnail.webp",
         conference: "IGARSS 2025",  // 학회 약어 (왼쪽 상단)
         award: "Oral",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
@@ -95,7 +95,7 @@ const publications = [
         authors: "Steve Andreas Immanuel, Woojin Cho, Junhyuk Heo, and Darongsae Kwon",
         venue: "ICLR Machine Learning for Remote Sensing Workshop",
         year: "2025",
-        image: "assets/publications/Fewshot_thumbnail.png",
+        image: "assets/publications/Fewshot_thumbnail.webp",
         conference: "ICLRw 2025",  // 학회 약어 (왼쪽 상단)
         award: "Best Paper",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
@@ -109,7 +109,7 @@ const publications = [
         authors: "Woojin Cho*, Steve Andreas Immanuel*, Junhyuk Heo, and Darongsae Kwon",
         venue: "NeurIPS Neural Compression Workshop",
         year: "2024",
-        image: "assets/publications/Implisat_thumbnail.png",
+        image: "assets/publications/Implisat_thumbnail.webp",
         conference: "NeurIPSw 2024",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
@@ -126,7 +126,7 @@ const vitaeData = [
         period: "May 2024 - Present",
         title: "telePIX",
         role: "AI Engineer",
-        image: "assets/vitae/telepix.png",
+        image: "assets/vitae/telepix.webp",
         type: "work",
         link: "https://telepix.net/"
     },
@@ -134,14 +134,14 @@ const vitaeData = [
         period: "Sep 2019 - Apr 2021",
         title: "R.O.K Marine Corps",
         role: "Sergeant",
-        image: "assets/vitae/rokmc.png",
+        image: "assets/vitae/rokmc.webp",
         type: "military"
     },
     {
         period: "Mar 2018 - Feb 2024",
         title: "Konkuk University",
         role: "B.S Civil Engineering",
-        image: "assets/vitae/konkuk.png",
+        image: "assets/vitae/konkuk.webp",
         type: "education"
     }
 ];
@@ -168,7 +168,7 @@ const skills = {
 
 // Personal Information
 const personalInfo = {
-    profileImage: "assets/profile/profile_img.jpg",
+    profileImage: "assets/profile/profile_img.webp",
     name: "Junhyuk Heo",
     description: "I'm an AI researcher in <a href='https://telepix.net/' target='_blank'>TelePIX</a>. My work focuses on machine learning for Earth observation, aiming to derive real-world value from satellite imagery for environmental monitoring and climate change. My interests include learning methods for extracting meaningful information from remote sensing data (e.g., target detection and semantic segmentation), as well as representation learning and foundation models. I also work on satellite data preprocessing, including atmospheric and radiometric correction, and I am increasingly interested in onboard processing and compression for more efficient use of satellite observations."
 };
