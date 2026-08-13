@@ -969,10 +969,15 @@ section.news {
 }
 
 @media (max-width: 480px) {
+    /* No max-height. Capping the hero at 400px did not shrink its content —
+       the content stayed ~533px and simply overflowed the box, so the News
+       section (later in the DOM, with its own background) painted on top and
+       intercepted every tap on the contact links. Centring also pushed the
+       overflow upward, clipping the photo under the fixed navbar. */
     .hero {
-        min-height: 320px;
-        max-height: 400px;
-        padding: 80px 0 20px;
+        min-height: 0;
+        max-height: none;
+        padding: 90px 0 32px;
     }
 
     .hero-content {
