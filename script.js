@@ -83,7 +83,23 @@ function initNavigation() {
     });
 
     navMenu.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => setMenu(false));
+        link.addEventListener('click', event => {
+            setMenu(false);
+
+            // A fragment link matching the current hash is a no-op for the
+            // browser: tap "News", scroll away by hand, tap "News" again and
+            // nothing happens. Scroll it ourselves in just that case, so native
+            // history and scroll restoration are left alone everywhere else.
+            const id = (link.getAttribute('href') || '').slice(1);
+            const target = id && document.getElementById(id);
+            if (target && window.location.hash === `#${id}`) {
+                event.preventDefault();
+                target.scrollIntoView({
+                    behavior: prefersReducedMotion ? 'auto' : 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     });
 
     document.addEventListener('click', event => {
@@ -95,34 +111,20 @@ function initNavigation() {
         if (event.key === 'Escape') setMenu(false);
     });
 
-    initNavbarScrollState();
-    initActiveNavLink();
+    initScrollSpy();
 }
 
-// Toggles a class instead of writing inline styles, and reads scrollY at most
-// once per animation frame — the old handler ran on every scroll event.
-function initNavbarScrollState() {
+// One rAF-throttled scroll tick drives both the navbar shadow and the active
+// nav link. The active section is recomputed from live geometry each frame
+// rather than cached from IntersectionObserver events: the observer only fires
+// when an intersection *changes*, so its cached set could disagree with where
+// the page actually was (a tap would leave the previous section highlighted and
+// nothing would re-fire to correct it). Four getBoundingClientRect calls per
+// frame, only while scrolling, is far cheaper than the original handler, which
+// read offsetTop/offsetHeight for every section on every scroll event.
+function initScrollSpy() {
     const navbar = document.querySelector('.navbar');
-    if (!navbar) return;
 
-    let queued = false;
-    const update = () => {
-        queued = false;
-        navbar.classList.toggle('scrolled', window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', () => {
-        if (queued) return;
-        queued = true;
-        requestAnimationFrame(update);
-    }, { passive: true });
-
-    update();
-}
-
-// IntersectionObserver instead of measuring offsetTop/offsetHeight for every
-// section on every scroll event, which forced a synchronous layout each time.
-function initActiveNavLink() {
     const links = new Map();
     document.querySelectorAll('.nav-link').forEach(link => {
         const id = (link.getAttribute('href') || '').slice(1);
@@ -132,21 +134,81 @@ function initActiveNavLink() {
     const sections = [...links.keys()]
         .map(id => document.getElementById(id))
         .filter(Boolean);
-    if (!sections.length || !('IntersectionObserver' in window)) return;
 
-    const visible = new Set();
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) visible.add(entry.target.id);
-            else visible.delete(entry.target.id);
+    // The line that decides "which section am I reading" must sit below where a
+    // nav tap parks the target, which is scroll-padding-top. Derived from the CSS
+    // so the two cannot drift apart: when the line sat above it, a sliver of the
+    // previous section stayed in range and kept winning, so every tap
+    // highlighted the section before the one requested.
+    const readingLine = Math.round(
+        parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 84
+    ) + 12;
+
+    const setActive = id => links.forEach((link, key) => link.classList.toggle('active', key === id));
+
+    // Sections are contiguous, so the current one is the last whose top edge has
+    // passed the reading line.
+    const currentId = () => {
+        let id = sections[0].id;
+        for (const section of sections) {
+            if (section.getBoundingClientRect().top > readingLine) break;
+            id = section.id;
+        }
+        // At the very bottom the last section wins even if it is short.
+        const doc = document.documentElement;
+        if (window.scrollY + window.innerHeight >= doc.scrollHeight - 2) {
+            id = sections[sections.length - 1].id;
+        }
+        return id;
+    };
+
+    // Hold the highlight on a tapped link while its smooth scroll is in flight,
+    // so it does not flicker through every section on the way there.
+    let pendingId = null;
+    let pendingTimer = null;
+    const releasePending = () => {
+        pendingId = null;
+        clearTimeout(pendingTimer);
+    };
+
+    links.forEach((link, id) => {
+        link.addEventListener('click', () => {
+            pendingId = id;
+            setActive(id);
+            clearTimeout(pendingTimer);
+            // Safety valve: the next tick re-syncs from geometry regardless.
+            pendingTimer = setTimeout(releasePending, 1200);
         });
+    });
 
-        // Topmost visible section wins, so the highlight matches reading order.
-        const active = sections.find(section => visible.has(section.id));
-        links.forEach((link, id) => link.classList.toggle('active', !!active && id === active.id));
-    }, { rootMargin: '-72px 0px -60% 0px' });
+    // Manual scroll input hands control straight back to the page position.
+    ['wheel', 'touchmove'].forEach(type =>
+        window.addEventListener(type, releasePending, { passive: true }));
 
-    sections.forEach(section => observer.observe(section));
+    const update = () => {
+        // Read first, then write, so nothing thrashes layout mid-frame.
+        const scrolled = window.scrollY > 50;
+        const id = sections.length ? currentId() : null;
+
+        if (navbar) navbar.classList.toggle('scrolled', scrolled);
+        if (!id) return;
+        if (pendingId && id === pendingId) releasePending();
+        setActive(pendingId || id);
+    };
+
+    let queued = false;
+    const onScroll = () => {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(() => {
+            queued = false;
+            update();
+        });
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
 }
 
 /* ---------- Scroll reveal ------------------------------------------------ */
