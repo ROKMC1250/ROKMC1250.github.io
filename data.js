@@ -2,7 +2,7 @@
 const publications = [
     {
         title: "Few-Shot Open-Vocabulary Remote Sensing Segmentation via Textual Inversion",
-        authors: "Junhyuk Heo, Junghwan Park",
+        authors: "J Heo, J Park",
         venue: "ECCV TerraBytes2 Workshop",
         year: "2026",
         image: "assets/publications/ECCVw_thumbnail.webp",
@@ -15,7 +15,7 @@ const publications = [
     },
     {
         title: "FLAME: Physics-Guided Neural Operators for Onboard Satellite Methane Detection in Hyperspectral Imagery",
-        authors: "Junhyuk Heo, Junghwan Park, Sangcheol Sim, Beomkyu Choi, Woojin Cho",
+        authors: "J Heo, J Park, S Sim, B Choi, W Cho",
         venue: "ICML AI4Science Workshop",
         year: "2026",
         image: "assets/publications/FLAME_thumbnail.webp",
@@ -28,7 +28,7 @@ const publications = [
     },
     {
         title: "MANGO: A GLOBAL SINGLE-DATE PAIRED DATASET FOR MANGROVE SEGMENTATION",
-        authors: "Junhyuk Heo, Beomkyu Choi, Hyunjin Shin, Darongsae Kwon",
+        authors: "J Heo, B Choi, H Shin, D Kwon",
         venue: "IEEE International Geoscience and Remote Sensing Symposium",
         year: "2026",
         image: "assets/publications/MANGO_IGARSS_thumbnail.webp",
@@ -41,19 +41,20 @@ const publications = [
     },
     {
         title: "ELMZip: Onboard Satellite Image Compression via Extreme Learning Machines for Efficient Downlink",
-        authors: "Woojin Cho, Junghwan Park, Sangcheol Sim, Steve Andreas Immanuel, Junhyuk Heo, Darongsae Kwon",
+        authors: "W Cho, J Park, S Sim, S Immanuel, J Heo, D Kwon",
         venue: "IEEE International Geoscience and Remote Sensing Symposium",
         year: "2026",
         image: "assets/publications/ELMzip_thumbnail.webp",
         conference: "IGARSS 2026",  // 학회 약어 (왼쪽 상단)
         award: "",  // Best Paper, Oral, Poster 등 (오른쪽 상단)
         links: {
+            paper: "https://arxiv.org/abs/2608.06942",
         }
     },
 
     {
         title: "Basis-Oriented Low-rank Transfer for Few-Shot and Test-Time Adaptation",
-        authors: "Junghwan Park, Woojin Cho, Junhyuk Heo, Darongsae Kwon, Kookjin Lee",
+        authors: "J Park, W Cho, J Heo, D Kwon, K Lee",
         venue: "CVPR",
         year: "2026",
         image: "assets/publications/BOLT_thumbnail.webp",
@@ -65,7 +66,7 @@ const publications = [
     },
     {
         title: "Self-Supervised Score-Based Despeckling for SAR Imagery via Log-Domain Transformation",
-        authors: "Junhyuk Heo",
+        authors: "J Heo",
         venue: "preprint",
         year: "2025",
         image: "assets/publications/S4DM_thumbnail_real.webp",
@@ -78,7 +79,7 @@ const publications = [
     },
     {
         title: "Fourier-Modulated Implicit Neural Representation for Multispectral Satellite Image Compression",
-        authors: "Woojin Cho*, Steve Andreas Immanuel*, Junhyuk Heo, and Darongsae Kwon",
+        authors: "W Cho*, S Immanuel*, J Heo, D Kwon",
         venue: "IEEE International Geoscience and Remote Sensing Symposium",
         year: "2025",
         image: "assets/publications/Implisat_IGARSS_thumbnail.webp",
@@ -92,7 +93,7 @@ const publications = [
     },
     {
         title: "Tackling Few-Shot Segmentation in Remote Sensing via Inpainting Diffusion Model",
-        authors: "Steve Andreas Immanuel, Woojin Cho, Junhyuk Heo, and Darongsae Kwon",
+        authors: "S Immanuel, W Cho, J Heo, D Kwon",
         venue: "ICLR Machine Learning for Remote Sensing Workshop",
         year: "2025",
         image: "assets/publications/Fewshot_thumbnail.webp",
@@ -106,7 +107,7 @@ const publications = [
     },
     {
         title: "Neural Compression for Multispectral Satellite Images",
-        authors: "Woojin Cho*, Steve Andreas Immanuel*, Junhyuk Heo, and Darongsae Kwon",
+        authors: "W Cho*, S Immanuel*, J Heo, D Kwon",
         venue: "NeurIPS Neural Compression Workshop",
         year: "2024",
         image: "assets/publications/Implisat_thumbnail.webp",
