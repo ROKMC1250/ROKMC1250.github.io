@@ -1,0 +1,11 @@
+# Local-only analytics/admin files (never deploy through GitHub Pages)
+/admin-local/
+/analytics-local/
+
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+
+# macOS metadata
+.DS_Store
