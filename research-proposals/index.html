@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow, noarchive">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <meta name="description" content="Junhyuk Heo의 네 가지 연구 제안서를 담은 19쪽 합본 PDF.">
@@ -277,15 +278,35 @@
         link.addEventListener('click', event => {
           if (!inlinePreview.matches || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
           event.preventDefault();
-          const destination = new URL(link.getAttribute('href'), window.location.href);
+          const destination = new URL(link.href);
           const page = destination.hash.match(/page=(\d+)/)[1];
           destination.searchParams.set('section', page);
-          destination.hash += '&view=FitH';
+          if (!destination.hash.includes('view=')) destination.hash += '&view=FitH';
           frame.src = destination.href;
           links.forEach(item => item.removeAttribute('aria-current'));
           link.setAttribute('aria-current', 'page');
         });
       });
+      fetch('document.json?t=' + Date.now(), {cache:'no-store'})
+        .then(response => { if (!response.ok) throw Error('Document metadata is unavailable'); return response.json(); })
+        .then(doc => {
+          if (!Array.isArray(doc.topics) || doc.topics.length !== links.length) return;
+          const pdfURL = new URL('research-proposals.pdf', window.location.href);
+          pdfURL.searchParams.set('v', doc.version);
+          document.querySelectorAll('.actions a, .viewer-help a, .mobile-fallback a').forEach(link => {link.href = pdfURL.href;});
+          links.forEach((link,index) => {
+            const topic = doc.topics[index];
+            const destination = new URL(pdfURL);
+            destination.hash = 'page=' + topic.start_page + '&view=FitH';
+            link.href = destination.href;
+            link.querySelector('.topic-title').textContent = topic.title;
+            link.querySelector('.topic-page').textContent = topic.start_page + '쪽부터';
+          });
+          document.querySelector('.byline').lastChild.textContent = doc.topics.length + '개 연구 주제 · ' + doc.page_count + '쪽';
+          document.querySelector('.document-meta').textContent = 'PDF · ' + doc.page_count + '쪽';
+          frame.title = 'Research Proposals 합본 PDF, ' + doc.page_count + '쪽';
+          frame.src = (links.find(link => link.hasAttribute('aria-current')) || links[0]).href;
+        }).catch(() => {});
     })();
   </script>
 </body>
