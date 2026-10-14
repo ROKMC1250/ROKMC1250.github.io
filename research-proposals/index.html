@@ -287,10 +287,13 @@
           link.setAttribute('aria-current', 'page');
         });
       });
+      let currentVersion = null;
+      function refreshDocument() {
       fetch('document.json?t=' + Date.now(), {cache:'no-store'})
         .then(response => { if (!response.ok) throw Error('Document metadata is unavailable'); return response.json(); })
         .then(doc => {
-          if (!Array.isArray(doc.topics) || doc.topics.length !== links.length) return;
+          if (!Array.isArray(doc.topics) || doc.topics.length !== links.length || doc.version === currentVersion) return;
+          currentVersion = doc.version;
           const pdfURL = new URL('research-proposals.pdf', window.location.href);
           pdfURL.searchParams.set('v', doc.version);
           document.querySelectorAll('.actions a, .viewer-help a, .mobile-fallback a').forEach(link => {link.href = pdfURL.href;});
@@ -307,6 +310,10 @@
           frame.title = 'Research Proposals 합본 PDF, ' + doc.page_count + '쪽';
           frame.src = (links.find(link => link.hasAttribute('aria-current')) || links[0]).href;
         }).catch(() => {});
+      }
+      refreshDocument();
+      setInterval(() => { if (!document.hidden) refreshDocument(); }, 30000);
+      document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshDocument(); });
     })();
   </script>
 </body>
