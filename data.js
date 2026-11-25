@@ -124,9 +124,17 @@ const publications = [
 // Vitae/Timeline Data
 const vitaeData = [
     {
-        period: "May 2024 - Present",
-        title: "telePIX",
-        role: "AI Engineer",
+        period: "Nov 2026 - Present",
+        title: "PRISM lab",
+        role: "Research Intern",
+        image: "assets/vitae/prism-symbol_dark@2x",
+        type: "work",
+        link: "https://prism.korea.ac.kr/index.html"
+    },
+    {
+        period: "May 2024 - Oct 2026",
+        title: "TelePIX",
+        role: "AI Research Engineer",
         image: "assets/vitae/telepix.webp",
         type: "work",
         link: "https://telepix.net/"
@@ -149,6 +157,7 @@ const vitaeData = [
 
 // Research Interests
 const researchInterests = [
+    "Inverse Problems",
     "Deep Learning",
     "Remote Sensing",
     "Computer Vision", 
@@ -171,12 +180,17 @@ const skills = {
 const personalInfo = {
     profileImage: "assets/profile/profile_img.webp",
     name: "Junhyuk Heo",
-    description: "I'm an AI researcher in <a href='https://telepix.net/' target='_blank'>TelePIX</a>. My work focuses on machine learning for Earth observation, aiming to derive real-world value from satellite imagery for environmental monitoring and climate change. My interests include learning methods for extracting meaningful information from remote sensing data (e.g., target detection and semantic segmentation), as well as representation learning and foundation models. I also work on satellite data preprocessing, including atmospheric and radiometric correction, and I am increasingly interested in onboard processing and compression for more efficient use of satellite observations."
+    description: "I'm a Research Intern at PRISM lab, where I'm exploring inverse problems. Previously, I worked as an AI Engineer at <a href='https://telepix.net/' target='_blank' rel='noopener noreferrer'>TelePIX</a>, developing machine learning methods for Earth observation and satellite image analysis. My work there included extracting meaningful information from remote sensing data for environmental monitoring, as well as satellite data preprocessing."
 };
 
 // News Data
 const newsData = [
-
+    {
+        date: "2026-10",
+        title: "Joined PRISM lab as a Research Intern",
+        description: "I joined PRISM lab as a Research Intern, where I'm exploring inverse problems.",
+        type: "career"
+    },
     {
         date: "2026-07",
         title: "Paper accepted at ECCVw 2026 (Oral)",
@@ -240,4 +254,4 @@ const contactInfo = {
     scholar: "https://scholar.google.com/citations?user=FIhe-wcAAAAJ&hl=ko",
     linkedin: "https://www.linkedin.com/in/junhyuk-heo-51567a292/",
     cv: "assets/profile/Junhyuk_Heo_CV.pdf"
-}; 
+};

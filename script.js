@@ -342,6 +342,9 @@ function createTimelineItem(item, index) {
     const title = item.link
         ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a>`
         : item.title;
+    const image = item.image
+        ? `<img src="${item.image}" alt="${item.title}" loading="lazy" decoding="async">`
+        : `<span class="icon-fallback">${icon(timelineIcon(item.type))}</span>`;
 
     timelineItem.innerHTML = `
         <div class="timeline-content">
@@ -350,14 +353,14 @@ function createTimelineItem(item, index) {
             <div class="timeline-role">${item.role}</div>
         </div>
         <div class="timeline-image">
-            <img src="${item.image}" alt="${item.title}" loading="lazy" decoding="async">
+            ${image}
         </div>
     `;
 
     // Setting innerHTML on an <img> does nothing, so the old inline onerror
     // left a broken-image box. Swap in the icon on the parent instead.
     const img = timelineItem.querySelector('.timeline-image img');
-    img.addEventListener('error', () => {
+    if (img) img.addEventListener('error', () => {
         img.parentElement.innerHTML = `<span class="icon-fallback">${icon(timelineIcon(item.type))}</span>`;
     }, { once: true });
 
