@@ -352,7 +352,7 @@ function createTimelineItem(item, index) {
             <h3 class="timeline-title">${title}</h3>
             <div class="timeline-role">${item.role}</div>
         </div>
-        <div class="timeline-image">
+        <div class="timeline-image${item.imageFit === 'contain' ? ' timeline-image--contain' : ''}">
             ${image}
         </div>
     `;

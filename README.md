@@ -26,14 +26,15 @@ JubhyukHeo.github.io/
 ├── README.md           # 프로젝트 설명서
 └── assets/             # 이미지 자료
     ├── publications/   # 논문 썸네일 이미지
-    │   ├── S^4DM_thumbnail.png
-    │   ├── Implisat_IGARSS_thumbnail.png
-    │   ├── Implisat_thumbnail.png
-    │   └── Fewshot_thumbnail.png
+    │   ├── S4DM_thumbnail_real.webp
+    │   ├── Implisat_IGARSS_thumbnail.webp
+    │   ├── Implisat_thumbnail.webp
+    │   └── Fewshot_thumbnail.webp
     └── vitae/          # 경력/학력 관련 이미지
-        ├── telepix.png
-        ├── rokmc.png
-        └── konkuk.png
+        ├── prism-symbol.webp
+        ├── telepix.webp
+        ├── rokmc.webp
+        └── konkuk.webp
 ```
 
 ## 🛠️ 설정 방법
@@ -63,7 +64,7 @@ const publications = [
         authors: "저자 이름들",
         venue: "학회/저널 이름",
         year: "2024",
-        image: "assets/publications/이미지파일.png",
+        image: "assets/publications/이미지파일.webp",
         description: "논문 설명"
     }
     // 더 많은 논문들...
@@ -78,7 +79,7 @@ const vitaeData = [
         title: "회사/학교 이름",
         subtitle: "직책/학위",
         description: "상세 설명",
-        image: "assets/vitae/이미지파일.png",
+        image: "assets/vitae/이미지파일.webp",
         type: "work" // 또는 "education", "military"
     }
     // 더 많은 경력들...
@@ -107,6 +108,12 @@ const contactInfo = {
 1. `assets/publications/` 폴더에 논문 썸네일 이미지 추가
 2. `assets/vitae/` 폴더에 회사/학교 로고 이미지 추가
 3. 프로필 사진을 `assets/` 폴더에 추가하고 HTML에서 경로 수정
+
+사이트에는 WebP 이미지를 사용하며, 기존 PNG/JPG 파일은 편집용 원본으로 보관합니다.
+Vitae 로고는 기본적으로 원형 영역을 꽉 채웁니다. PRISM처럼 가로로 긴 로고는
+`data.js`에 `imageFit: "contain"`을 지정하면 전체 비율을 유지합니다.
+이 경우 `styles.css`의 `.timeline-image--contain img`에서 `padding: 20%`로
+여백을 조절할 수 있습니다. 값을 늘리면 로고가 작아지고, 줄이면 커집니다.
 
 ## 🎨 커스터마이징
 
@@ -180,9 +187,16 @@ Google Fonts를 사용하여 폰트를 변경할 수 있습니다:
 
 ### 로컬 개발
 
-1. 프로젝트를 다운로드합니다
-2. `index.html`을 웹 브라우저에서 열거나
-3. Live Server 등의 로컬 서버를 사용합니다
+프로젝트 폴더에서 다음 명령어를 실행합니다 (Python 3 필요):
+
+```bash
+cd /Users/junhyuk/Desktop/JunhyukHeo.github.io
+python3 -m http.server 8000 --bind 127.0.0.1
+```
+
+브라우저에서 [http://127.0.0.1:8000](http://127.0.0.1:8000)을 엽니다.
+Vitae 섹션은 [http://127.0.0.1:8000/#vitae](http://127.0.0.1:8000/#vitae)에서 바로 확인할 수 있습니다.
+서버를 종료하려면 터미널에서 `Ctrl+C`를 누릅니다.
 
 ## 📝 라이선스
 
@@ -196,4 +210,4 @@ Google Fonts를 사용하여 폰트를 변경할 수 있습니다:
 
 질문이나 도움이 필요하시면 언제든 연락해주세요:
 - Email: your.email@example.com
-- GitHub: [@JubhyukHeo](https://github.com/JubhyukHeo) 
+- GitHub: [@JubhyukHeo](https://github.com/JubhyukHeo)

@@ -127,7 +127,8 @@ const vitaeData = [
         period: "Nov 2026 - Present",
         title: "PRISM lab",
         role: "Research Intern",
-        image: "assets/vitae/prism-symbol.png",
+        image: "assets/vitae/prism-symbol.webp",
+        imageFit: "contain",
         type: "work",
         link: "https://prism.korea.ac.kr/index.html"
     },

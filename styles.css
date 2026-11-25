@@ -669,10 +669,17 @@ section.news {
 }
 
 .timeline-image img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
     background: white;
+}
+
+/* Wide logos need their full aspect ratio preserved inside the circle. */
+.timeline-image--contain img {
+    object-fit: contain;
+    padding: 20%;
 }
 
 /* Shown only when the logo image fails to load (see createTimelineItem). */
@@ -1130,4 +1137,4 @@ html {
         opacity: 1;
         transform: none;
     }
-} 
+}
