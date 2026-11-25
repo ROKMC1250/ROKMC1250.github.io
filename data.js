@@ -127,7 +127,7 @@ const vitaeData = [
         period: "Nov 2026 - Present",
         title: "PRISM lab",
         role: "Research Intern",
-        image: "assets/vitae/prism-symbol_dark@2x",
+        image: "assets/vitae/prism-symbol.png",
         type: "work",
         link: "https://prism.korea.ac.kr/index.html"
     },
@@ -180,7 +180,7 @@ const skills = {
 const personalInfo = {
     profileImage: "assets/profile/profile_img.webp",
     name: "Junhyuk Heo",
-    description: "I'm a Research Intern at PRISM lab, where I'm exploring inverse problems. Previously, I worked as an AI Engineer at <a href='https://telepix.net/' target='_blank' rel='noopener noreferrer'>TelePIX</a>, developing machine learning methods for Earth observation and satellite image analysis. My work there included extracting meaningful information from remote sensing data for environmental monitoring, as well as satellite data preprocessing."
+    description: "I am currently a Research Intern at <a href='https://prism.korea.ac.kr/index.html' target='_blank' rel='noopener noreferrer'>PRISM Lab</a>, Korea University, advised by Prof. <a href='https://hyungjin-chung.github.io/' target='_blank' rel='noopener noreferrer'>Hyungjin Chung</a>. My research focuses on generative models for inverse problems, with an interest in real-world applications, particularly in Earth observation. Previously, I was an AI Engineer at <a href='https://telepix.net/' target='_blank' rel='noopener noreferrer'>TelePIX</a>, where I developed machine learning methods for Earth observation, with a focus on environmental monitoring and satellite image processing."
 };
 
 // News Data
